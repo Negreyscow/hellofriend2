@@ -65,7 +65,7 @@ public class Main extends Application {
 		mainLayout.setCenter(gerenciar_users); //the magic happens
 	}
 
-
+	//this
 	public static void showAddUserStage() throws IOException {
 
 			FXMLLoader loader = new FXMLLoader();
