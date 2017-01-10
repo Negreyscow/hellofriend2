@@ -21,14 +21,9 @@ public class UsersController {
     @FXML
     private void goDadosUsers() throws IOException {
 
-        main.showFuncDadosScene();
-    }
+        main.showAddUserStage();    }
 
-    @FXML
-    private void goAddUsers() throws IOException {
-       main.showAddUserStage();
 
-    }
 
 
 

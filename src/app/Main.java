@@ -57,7 +57,7 @@ public class Main extends Application {
 		BorderPane mainItems = loader.load();
 		mainLayout.setCenter(mainItems);//seta o centro do main layout para receber os main items
 	}
-	
+
 	public static void showGerenciarScene() throws IOException{ // responsavel pelo acesso ao controlador
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/gerenciar_user.fxml"));
@@ -65,28 +65,6 @@ public class Main extends Application {
 		mainLayout.setCenter(gerenciar_users); //the magic happens
 	}
 
-	public static void showFuncDadosScene() throws IOException{ // responsavel pelo acesso ao controlador
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/dados_users.fxml"));
-		BorderPane show_users = loader.load();
-		mainLayout.setCenter(show_users); //the magic happens
-	}
-
-	/*
-	public static void showAddUserStage() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/add_new_func.fxml"));
-		BorderPane addUser = loader.load();
-
-		Stage addUserStage = new Stage();
-		addUserStage.setTitle("Adicionar Novo Funcionario");
-		addUserStage.initModality(Modality.WINDOW_MODAL); //abrir nova janela
-		addUserStage.initOwner(primaryStage);
-		Scene scene = new Scene(addUser);
-		addUserStage.setScene(scene);
-		addUserStage.showAndWait();
-
-	} */
 
 	public static void showAddUserStage() throws IOException {
 

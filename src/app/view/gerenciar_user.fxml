@@ -23,11 +23,7 @@
             <Insets bottom="80.0" left="80.0" right="80.0" top="80.0" />
          </BorderPane.margin>
          <children>
-            <Button fx:id="new_func_button" mnemonicParsing="false" onAction="#goAddUsers" prefHeight="156.0" prefWidth="320.0" text="Cadastrar Novo Usuario">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></Button>
-            <Button fx:id="gerenciar_func_button" mnemonicParsing="false" onAction="#goDadosUsers" prefHeight="164.0" prefWidth="418.0" text="Gerenciar Usuarios" GridPane.columnIndex="1">
+            <Button fx:id="gerenciar_func_button" mnemonicParsing="false" onAction="#goDadosUsers" prefHeight="164.0" prefWidth="418.0" text="Gerenciar Usuarios">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin></Button>
