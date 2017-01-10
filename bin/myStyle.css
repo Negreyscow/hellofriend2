@@ -1,0 +1,10 @@
+
+.root {
+	-fx-spacing: 30;
+	-fx-background-color: #f00;
+}
+
+.venda_button {
+	-fx-background-color: #0f0;
+
+}

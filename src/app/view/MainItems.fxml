@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
+   <center>
+      <GridPane prefHeight="400.0" prefWidth="588.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="260.0" prefWidth="260.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="140.0" prefWidth="414.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="170.0" prefWidth="414.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="409.0" minHeight="280.0" prefHeight="280.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="195.0" minHeight="120.0" prefHeight="120.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="venda_button" mnemonicParsing="false" prefHeight="280.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
+            <Button fx:id="consulta_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
+            <Button fx:id="visualizar_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+            <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="260.0" GridPane.rowIndex="1" />
+            <Button fx:id="config_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="trocar_user_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
