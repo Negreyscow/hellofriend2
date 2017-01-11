@@ -65,13 +65,29 @@ public class Main extends Application {
 		mainLayout.setCenter(gerenciar_users); //the magic happens
 	}
 
+	public static void showGerenciarProdutosScene() throws IOException{ // responsavel pelo acesso ao controlador
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/gerenciar_produtos.fxml"));
+		BorderPane gerenciar_produtos = loader.load();
+		mainLayout.setCenter(gerenciar_produtos); //the magic happens
+	}
+
 	//this
 	public static void showAddUserStage() throws IOException {
 
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("view/crudFuncionarios.fxml"));
-			BorderPane showCrudFuncionario = loader.load();
-			mainLayout.setCenter(showCrudFuncionario);
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/crudFuncionarios.fxml"));
+		BorderPane showCrudFuncionario = loader.load();
+		mainLayout.setCenter(showCrudFuncionario);
+	}
+
+	public static void showGerenciarProdutos() throws IOException {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/crudProdutos.fxml"));
+		BorderPane showCrudProdutos = loader.load();
+		mainLayout.setCenter(showCrudProdutos);
+
 	}
 
 	public static void main(String[] args) {

@@ -19,4 +19,11 @@ public class MainItemsController {
 		
 	}
 
+	@FXML
+    private void goGerenciarProdutos() throws IOException {
+        main.showGerenciarProdutosScene();
+    }
+
+
+
 }

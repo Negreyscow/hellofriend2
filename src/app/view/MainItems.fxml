@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
    <center>
       <GridPane prefHeight="400.0" prefWidth="588.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -25,7 +25,7 @@
          <children>
             <Button fx:id="venda_button" mnemonicParsing="false" prefHeight="280.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
             <Button fx:id="consulta_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
             <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
             <Button fx:id="visualizar_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
             <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="260.0" GridPane.rowIndex="1" />
