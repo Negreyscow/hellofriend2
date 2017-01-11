@@ -69,8 +69,8 @@ public class Main extends Application {
 	public static void showAddUserStage() throws IOException {
 
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("view/crudFuncionario.fxml"));
-			AnchorPane showCrudFuncionario = loader.load();
+			loader.setLocation(Main.class.getResource("view/crudFuncionarios.fxml"));
+			BorderPane showCrudFuncionario = loader.load();
 			mainLayout.setCenter(showCrudFuncionario);
 	}
 
