@@ -28,6 +28,8 @@ public class CrudFuncionarioController implements Initializable {
 
         dao = new funcionarioDAO();
 
+        consultarFuncionarios();
+
         idFuncionarioColumn.setCellValueFactory(new PropertyValueFactory<Funcionario, Integer>("id"));
         nomeFuncionarioColumn.setCellValueFactory(new PropertyValueFactory<Funcionario, String>("nome"));
         nascimentoFuncionarioColumn.setCellValueFactory(new PropertyValueFactory<Funcionario, Date>("dataNascimento"));
