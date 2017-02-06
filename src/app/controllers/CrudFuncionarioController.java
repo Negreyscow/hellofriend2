@@ -129,7 +129,9 @@ public class CrudFuncionarioController implements Initializable {
             funcionario.setCargo(novoFuncionarioCargo.getText());
             funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
 
+
             try {
+
                 dao.cadastrar(funcionario);
                 exibirDialogoInformacao("Usuario Cadastrado com sucesso!");
                 limparCadastroNovoFuncionario();
@@ -207,8 +209,6 @@ public class CrudFuncionarioController implements Initializable {
                 }
 
             }
-
-
         }
 
         @FXML

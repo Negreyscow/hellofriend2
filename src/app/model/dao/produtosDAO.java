@@ -2,6 +2,9 @@ package app.model.dao;
 
 import app.model.database.ConnectionFactory;
 import app.model.domain.Produtos;
+import javafx.fxml.FXML;
+
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +15,7 @@ import java.util.List;
 /**
  * Created by Aristarco on 06/01/17.
  */
-public class produtosDAO { //esta classe realizar as operações básicas de manipulação de banco de dados para os produtos
+public class  produtosDAO { //esta classe realizar as operações básicas de manipulação de banco de dados para os produtos
 
 
     private Connection connection;
@@ -21,53 +24,46 @@ public class produtosDAO { //esta classe realizar as operações básicas de man
         connection = new ConnectionFactory().getConnection();
     }
 
-    public void cadastrar(Produtos produtos){
+    public void cadastrar(Produtos produto) throws SQLException {
 
-        String sql = "insert into produtos (marca, tipo, tamanho, cor) values (?, ?, ?, ?)";
+        String sql = "insert into produtos (nome, preco, quantidade, cdcategoria) values (?, ?, ?,?)";
 
-        try {
+
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, produtos.getMarca());
-            statement.setString(2, produtos.getTipo());
-            statement.setString(3, produtos.getTamanho());
-            statement.setString(4, produtos.getCor());
+            statement.setString(1, produto.getNome());
+            statement.setBigDecimal(2, produto  .getPreco());
+            statement.setInt(3, produto.getQuantidade());
+            statement.setInt(4, produto.getCategoria());
+
 
             statement.execute();
             statement.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
 
     }
 
-    public void alterar(Produtos produtos){
+    public void alterar(Produtos produtos) throws SQLException{
 
-        String sql = "update produtos set marca=?, tipo=?, tamanho=?, cor=? where id=?";
+        String sql = "update produtos set nome=?, preco=?, quantidade=?, cdcategoria=? where cdproduto=?";
 
-        try {
+
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, produtos.getMarca());
-            statement.setString(2, produtos.getTipo());
-            statement.setString(3, produtos.getTamanho());
-            statement.setString(4, produtos.getCor());
+            statement.setString(1, produtos.getNome());
+            statement.setBigDecimal(2, produtos.getPreco());
+            statement.setInt(3, produtos.getQuantidade());
+            statement.setInt(4, produtos.getCategoria());
+            statement.setInt(5, produtos.getCdproduto());
 
             statement.execute();
             statement.close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
 
     }
 
     public void deletar(Integer idProduto){
 
-        String sql = "delete from produtos where id=?";
+        String sql = "delete from produtos where cdproduto=?";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -84,11 +80,11 @@ public class produtosDAO { //esta classe realizar as operações básicas de man
 
     }
 
-    public List<Produtos> consultar(String produtoTipo){
+    public List<Produtos> consultar(String nomeProduto){
 
         List<Produtos> produtos = new ArrayList<>();
 
-        String sql = "select * from produtos where id like '%" + produtoTipo + "%'";
+        String sql = "select * from produtos where nome like '%" + nomeProduto + "%'";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -98,11 +94,11 @@ public class produtosDAO { //esta classe realizar as operações básicas de man
 
                 Produtos produto = new Produtos();
 
-                produto.setCodProduto(resultSet.getInt("id"));
-                produto.setMarca(resultSet.getString("marca"));
-                produto.setTipo(resultSet.getString("tipo"));
-                produto.setTamanho(resultSet.getString("tamanho"));
-                produto.setCor(resultSet.getString("cor"));
+                produto.setCdproduto(resultSet.getInt("cdproduto"));
+                produto.setNome(resultSet.getString("nome"));
+                produto.setQuantidade(resultSet.getInt("quantidade"));
+                produto.setPreco(resultSet.getBigDecimal("preco"));
+                produto.setCategoria(resultSet.getInt("cdcategoria"));
 
                 produtos.add(produto);
 
@@ -118,6 +114,10 @@ public class produtosDAO { //esta classe realizar as operações básicas de man
 
         return produtos;
     }
+
+    ///aditional
+
+
 
 
 

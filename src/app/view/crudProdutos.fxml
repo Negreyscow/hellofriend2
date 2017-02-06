@@ -43,10 +43,10 @@
                         <TableView fx:id="produtoTable" prefHeight="486.0" prefWidth="495.0">
                           <columns>
                             <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />
-                            <TableColumn fx:id="marcaColumn" prefWidth="75.0" text="marca" />
-                              <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="tipo" />
-                              <TableColumn fx:id="tamanhoColumn" prefWidth="75.0" text="tamanho" />
-                              <TableColumn fx:id="corColumn" prefWidth="75.0" text="cor" />
+                            <TableColumn fx:id="produtoColumn" prefWidth="75.0" text="produto" />
+                              <TableColumn fx:id="categoriaColumn" prefWidth="75.0" text="categoria" />
+                              <TableColumn fx:id="quantidadeColumn" prefWidth="75.0" text="quantidade" />
+                              <TableColumn fx:id="precoColumn" prefWidth="75.0" text="preco" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

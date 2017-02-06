@@ -1,61 +1,54 @@
 package app.model.domain;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
-public class Produtos implements Serializable {
+public class Produtos {
 
-    private int codProduto;
-    private String marca;
-    private String tipo;
-    private String tamanho;
-    private String cor;
+    private Integer cdproduto;
+    private String nome;
+    private BigDecimal preco;
+    private Integer quantidade;
+    private Integer categoria;
 
 
-    public int getCodProduto() {
-        return codProduto;
+
+    public Integer getCdproduto() {
+        return cdproduto;
     }
 
-    public void setCodProduto(int codProduto) {
-        this.codProduto = codProduto;
+    public void setCdproduto(Integer cdproduto) {
+        this.cdproduto = cdproduto;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getNome() {
+        return nome;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getTipo() {
-        return tipo;
+    public BigDecimal getPreco() {
+        return preco;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 
-    public String getTamanho() {
-        return tamanho;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public String getCor() {
-        return cor;
+    public Integer getCategoria() {
+        return categoria;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setCategoria(Integer categoria) {
+        this.categoria = categoria;
     }
-
-   // @Override
-   // public String toString() {
-    //    return this.nome;
-    //}
-    
 }

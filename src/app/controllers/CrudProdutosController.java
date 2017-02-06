@@ -1,13 +1,21 @@
 package app.controllers;
 
+
 import app.model.dao.produtosDAO;
+import app.Main;
 import app.model.domain.Produtos;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
@@ -17,11 +25,12 @@ public class CrudProdutosController implements Initializable {
 
     private produtosDAO dao;
 
-    @FXML
-    private TextField fieldBuscar;
+    private Main main;
+
+    private produtosDAO produtoSelecionado;
 
     @FXML
-    private TextField buscar;
+    private TextField fieldBuscar;
 
     @FXML
     private Button buttonBuscar;
@@ -33,16 +42,16 @@ public class CrudProdutosController implements Initializable {
     private TableColumn<Produtos, Integer> idColumn;
 
     @FXML
-    private TableColumn<Produtos, String> marcaColumn;
+    private TableColumn<Produtos, String> produtoColumn;
 
     @FXML
-    private TableColumn<Produtos, String> tipoColumn;
+    private TableColumn<Produtos, Integer> categoriaColumn;
 
     @FXML
-    private TableColumn<Produtos, String > tamanhoColumn;
+    private TableColumn<Produtos, Integer> quantidadeColumn;
 
     @FXML
-    private TableColumn<Produtos, String> corColumn;
+    private TableColumn<Produtos, BigDecimal> precoColumn;
 
     @FXML
     private Label precoField;
@@ -50,52 +59,107 @@ public class CrudProdutosController implements Initializable {
     @FXML
     private Label quantidadeField;
 
-    @FXML
-    void goAlterarButton() {
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         dao = new produtosDAO();
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("id"));
-        marcaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("marca"));
-        tipoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("tipo"));
-        tamanhoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("tamanho"));
-        corColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("cor"));
+        //consultarFuncionarios();
+        goBuscar();
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("cdproduto"));
+        produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
+        precoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
+        quantidadeColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
+        categoriaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("cdcategoria"));
+
+        //goBuscar();
+
+    }
+
+
+
+    @FXML
+    void goAlterarButton() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/viewAlterarProdutos.fxml"));
+        BorderPane alterarProduto = loader.load();
+
+        Stage addDialogStage = new Stage();
+        addDialogStage.setTitle("Alterar Produto");
+        addDialogStage.initModality(Modality.WINDOW_MODAL);
+        // addDialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(alterarProduto);
+        addDialogStage.setScene(scene);
+        addDialogStage.showAndWait();
+
     }
 
     @FXML
     void goBuscar() {
 
-            try {
-                List<Produtos> resultado = dao.consultar(fieldBuscar.getText());
+        try {
+            List<Produtos> resultado = dao.consultar(fieldBuscar.getText());
 
-                if(resultado.isEmpty()){
-                    exibirDialogoInformacao("Nenhum Resultado foi encontrado");
-                } else {
+            if(resultado.isEmpty()){
+                exibirDialogoInformacao("Nenhum Resultado foi encontrado");
+            } else {
 
-                    produtoTable.setItems(FXCollections.observableList(resultado));
+                produtoTable.setItems(FXCollections.observableList(resultado));
 
-                }
-            } catch (Exception e){
-                exibirDialogoErro("Falha ao realizar a consulta");
-                e.printStackTrace();
             }
+        } catch (Exception e){
+            exibirDialogoErro("Falha ao realizar a consulta");
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
-    void goCadastrarButton() {
+    void goCadastrarButton() throws IOException {
+
+       //main.showCadastrarProdutos();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/viewCadastrarProdutos.fxml"));
+        BorderPane cadastrarProduto = loader.load();
+
+        Stage addDialogStage = new Stage();
+        addDialogStage.setTitle("Cadastrar Produto");
+        addDialogStage.initModality(Modality.WINDOW_MODAL);
+       // addDialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(cadastrarProduto);
+        addDialogStage.setScene(scene);
+        addDialogStage.showAndWait();
 
     }
 
     @FXML
     void goRemoverButton() {
 
-    }
 
+        if (produtoTable.getSelectionModel().getSelectedItem() == null){
+            exibirDialogoErro("Não há funcionario selecionado!");
+        } else {
+
+            if (exibirDialogoConfirmação("Confirmar a exclusão do funcionario selecionado?")==true){
+                try {
+
+                    dao.deletar(produtoTable.getSelectionModel().getSelectedItem().getCdproduto());
+                    exibirDialogoInformacao("Funcionario Deletado com sucuesso!");
+                    goBuscar();
+
+
+                } catch (Exception e){
+                    exibirDialogoErro("Falha ao deletar o funcionario");
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+    }
 
 
     private void exibirDialogoInformacao(String informacao){
@@ -128,7 +192,6 @@ public class CrudProdutosController implements Initializable {
         return false;
 
     }
-
 
 
 }

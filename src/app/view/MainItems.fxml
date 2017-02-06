@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
    <center>
-      <GridPane prefHeight="400.0" prefWidth="588.0" BorderPane.alignment="CENTER">
+      <GridPane gridLinesVisible="true" prefHeight="420.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="260.0" prefWidth="260.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="140.0" prefWidth="414.0" />

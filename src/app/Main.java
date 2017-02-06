@@ -1,6 +1,8 @@
 package app;
 
 import java.io.IOException;
+
+import app.controllers.CrudProdutosController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,6 +89,23 @@ public class Main extends Application {
 		loader.setLocation(Main.class.getResource("view/crudProdutos.fxml"));
 		BorderPane showCrudProdutos = loader.load();
 		mainLayout.setCenter(showCrudProdutos);
+
+	}
+
+	public static void showCadastrarProdutos() throws IOException {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/viewCadastrarProdutos.fxml"));
+		BorderPane cadastrarProduto = loader.load();
+
+		Stage addDialogStage = new Stage();
+		addDialogStage.setTitle("Cadastrar Produto");
+		addDialogStage.initModality(Modality.WINDOW_MODAL);
+		addDialogStage.initOwner(primaryStage);
+		Scene scene = new Scene(cadastrarProduto);
+		addDialogStage.setScene(scene);
+		addDialogStage.showAndWait();
+
 
 	}
 
