@@ -28,6 +28,11 @@ public class MainItemsController {
 
     }
 
+    @FXML
+	private void goViewVenda() throws IOException {
+		main.showViewVenda();
+	}
+
 
 
 }

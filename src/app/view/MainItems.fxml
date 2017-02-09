@@ -23,7 +23,7 @@
             <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
          </BorderPane.margin>
          <children>
-            <Button fx:id="venda_button" mnemonicParsing="false" prefHeight="280.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
+            <Button fx:id="venda_button" mnemonicParsing="false" onAction="#goViewVenda" prefHeight="280.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
             <Button fx:id="consulta_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
             <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
             <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />

@@ -3,6 +3,7 @@ package app;
 import java.io.IOException;
 
 import app.controllers.CrudProdutosController;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -105,6 +106,15 @@ public class Main extends Application {
 		Scene scene = new Scene(cadastrarProduto);
 		addDialogStage.setScene(scene);
 		addDialogStage.showAndWait();
+
+
+	}
+
+	public static void showViewVenda() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/mainViewVendas.fxml"));
+		BorderPane telaVenda = loader.load();
+		mainLayout.setCenter(telaVenda);
 
 
 	}
