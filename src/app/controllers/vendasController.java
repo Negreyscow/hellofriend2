@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -38,7 +39,7 @@ public class vendasController implements Initializable {
     private List<String>  listComboBox = new ArrayList<>();
     private ObservableList<String> observableListComboBox;
 
-    private List<Produtos> listCarrinho = new ArrayList<>();
+    private List<Produtos> listCarrinho;
     private ObservableList<Produtos> observableListCarrinho;
 
     @FXML
@@ -74,6 +75,37 @@ public class vendasController implements Initializable {
     @FXML
     private TableColumn<Produtos, BigDecimal> columnValorCar;
 
+    class myObject{
+        String nome;
+        Integer qtd;
+        BigDecimal maney;
+
+       // http://java-buddy.blogspot.com.br/2013/05/implement-javafx-listview-for-custom.html
+
+        myObject(String n, Integer q, BigDecimal m){
+            nome = n;
+            qtd = q;
+            maney = m;
+        }
+
+        String getNomee(){
+            return nome;
+        }
+
+            Integer getQtd(){
+            return qtd;
+            }
+
+            BigDecimal getManey(){
+                return maney;
+            }
+
+    }
+
+    List<myObject> mylist;
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -105,14 +137,36 @@ public class vendasController implements Initializable {
     @FXML
     void goCarrinho(){
         //pega o item selecionado na tabela
-        //produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
-        listCarrinho = tableVendasItems.getSelectionModel().getSelectedItems();
-        observableListCarrinho = FXCollections.observableArrayList(listCarrinho);
+
+        produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
+        /*
+        observableListCarrinho = FXCollections.observableArrayList(produtoSelecionado);
         tableCarrinho.setItems(observableListCarrinho);
+        System.out.println(produtoSelecionado.getNome());*/
 
+        String name = produtoSelecionado.getNome();
+        Integer quantidade = produtoSelecionado.getQuantidade();
+        BigDecimal preco = produtoSelecionado.getPreco();
 
-        System.out.println(produtoSelecionado.getNome());
+        mylist.add(new myObject(name,quantidade,preco));
 
+        ListView<myObject> listView = new ListView<>();
+        ObservableList<myObject> myObjectObservableList = FXCollections.observableList(mylist);
+        listView.setCellFactory(new Callback<ListView<myObject>, ListCell<myObject>>() {
+            @Override
+            public ListCell<myObject> call(ListView<myObject> param) {
+                ListCell<myObject> cell = new ListCell<myObject>(){
+                    @Override
+                    protected void updateItem(myObject t,boolean bln){
+                        super.updateItem(t, bln);
+                        if (t != null){
+                            setText(t.getNomee() + ":" + t.getQtd() + ":" + t.getManey());
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
 
 
     }
