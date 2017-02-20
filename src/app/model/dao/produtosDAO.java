@@ -33,7 +33,7 @@ public class  produtosDAO { //esta classe realizar as operações básicas de ma
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, produto.getNome());
-            statement.setBigDecimal(2, produto.getPreco());
+            statement.setDouble(2, produto.getPreco());
             statement.setInt(3, produto.getQuantidade());
             statement.setString(4, produto.getCategoria());
 
@@ -51,7 +51,7 @@ public class  produtosDAO { //esta classe realizar as operações básicas de ma
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, produtos.getNome());
-            statement.setBigDecimal(2, produtos.getPreco());
+            statement.setDouble(2, produtos.getPreco());
             statement.setInt(3, produtos.getQuantidade());
             statement.setString(4, produtos.getCategoria());
             statement.setInt(5, produtos.getCdproduto());
@@ -98,7 +98,7 @@ public class  produtosDAO { //esta classe realizar as operações básicas de ma
                 produto.setCdproduto(resultSet.getInt("cdproduto"));
                 produto.setNome(resultSet.getString("nome"));
                 produto.setQuantidade(resultSet.getInt("quantidade"));
-                produto.setPreco(resultSet.getBigDecimal("preco"));
+                produto.setPreco(resultSet.getDouble("preco"));
                 produto.setCategoria(resultSet.getString("idproduto"));
 
                 produtos.add(produto);
@@ -133,7 +133,7 @@ public class  produtosDAO { //esta classe realizar as operações básicas de ma
                // produto.setCdproduto(resultSet.getInt("cdproduto"));
                 produto.setNome(resultSet.getString("nome"));
                 produto.setQuantidade(resultSet.getInt("quantidade"));
-                produto.setPreco(resultSet.getBigDecimal("preco"));
+                produto.setPreco(resultSet.getDouble("preco"));
                 produto.setCategoria(resultSet.getString("idproduto"));
 
                 produtos.add(produto);

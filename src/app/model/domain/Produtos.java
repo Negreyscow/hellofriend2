@@ -6,7 +6,7 @@ public class Produtos {
 
     private Integer cdproduto;
     private String nome;
-    private BigDecimal preco;
+    private double preco;
     private Integer quantidade;
     private String categoria;
 
@@ -28,11 +28,11 @@ public class Produtos {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

@@ -76,12 +76,35 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
+                        <HBox prefHeight="43.0" prefWidth="282.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="103.0" text="Valor Total:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="fieldTotal" prefHeight="30.0" prefWidth="68.0" text="00,00">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <opaqueInsets>
                               <Insets top="10.0" />
                            </opaqueInsets>
                            <children>
-                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="44.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
+                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#removerTableViewCarrinho" prefHeight="44.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="10.0" top="10.0" />
                                  </HBox.margin>

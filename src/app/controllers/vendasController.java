@@ -39,8 +39,8 @@ public class vendasController implements Initializable {
     private List<String>  listComboBox = new ArrayList<>();
     private ObservableList<String> observableListComboBox;
 
-    private List<Produtos> listCarrinho;
-    private ObservableList<Produtos> observableListCarrinho;
+    //private List<Produtos> listCarrinho;
+    //private ObservableList<Produtos> observableListCarrinho;
 
     @FXML
     private TableColumn<Produtos, String> idColumn;
@@ -63,17 +63,29 @@ public class vendasController implements Initializable {
     @FXML
     private TableView<Produtos> tableVendasItems;
 
+
+    //table view do carrinho de compras
     @FXML
-    private TableView tableCarrinho = new TableView<>();
+    private TableView<Produtos> tableCarrinho;
 
     @FXML
-    private TableColumn columnProdutoCar = new TableColumn<>();
+    private TableColumn<Produtos, String> columnProdutoCar;
 
     @FXML
     private TableColumn<Produtos, Integer> columnQtdCar;
 
     @FXML
     private TableColumn<Produtos, BigDecimal> columnValorCar;
+
+    private List<Produtos> listCarrinho = new ArrayList();
+
+    private ObservableList<Produtos> observableListCarrinho;
+
+    @FXML
+    private Label fieldTotal;
+
+    private double totalCompra = 0;
+
 
     class myObject{
         String nome;
@@ -134,22 +146,50 @@ public class vendasController implements Initializable {
 
     }
 
-    @FXML
-    void goCarrinho(){
-        //pega o item selecionado na tabela
+    public void carregarTableViewCarrinho(){
 
         produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
+
+        columnProdutoCar.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
+        columnQtdCar.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
+        columnValorCar.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
+
+        listCarrinho.add(produtoSelecionado);
+
+        observableListCarrinho = FXCollections.observableArrayList(listCarrinho);
+        tableCarrinho.setItems(observableListCarrinho);
+
+        totalCompra += produtoSelecionado.getPreco();
+        fieldTotal.setText(Double.toString(totalCompra));
+
+
+    }
+
+    @FXML
+    public void removerTableViewCarrinho(){
+        Produtos produto = tableCarrinho.getSelectionModel().getSelectedItem();
+        tableCarrinho.getItems().remove(produto);
+    }
+
+    @FXML
+    void goCarrinho(){
+
+        carregarTableViewCarrinho();
+        //pega o item selecionado na tabela
+
+        //produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
         /*
         observableListCarrinho = FXCollections.observableArrayList(produtoSelecionado);
         tableCarrinho.setItems(observableListCarrinho);
         System.out.println(produtoSelecionado.getNome());*/
 
-        String name = produtoSelecionado.getNome();
-        Integer quantidade = produtoSelecionado.getQuantidade();
-        BigDecimal preco = produtoSelecionado.getPreco();
+       // String name = produtoSelecionado.getNome();
+        //Integer quantidade = produtoSelecionado.getQuantidade();
+       // BigDecimal preco = produtoSelecionado.getPreco();
 
-        mylist.add(new myObject(name,quantidade,preco));
+       // mylist.add(new myObject(name,quantidade,preco));
 
+        /*
         ListView<myObject> listView = new ListView<>();
         ObservableList<myObject> myObjectObservableList = FXCollections.observableList(mylist);
         listView.setCellFactory(new Callback<ListView<myObject>, ListCell<myObject>>() {
@@ -166,7 +206,7 @@ public class vendasController implements Initializable {
                 };
                 return cell;
             }
-        });
+        }); */
 
 
     }

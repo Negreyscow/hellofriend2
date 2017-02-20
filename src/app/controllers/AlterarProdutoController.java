@@ -50,7 +50,7 @@ public class AlterarProdutoController implements Initializable{
     void actionAlterar() {
         produtoSelecionado.setNome(fieldDescricao.getText());
         produtoSelecionado.setCategoria(fieldProdutoCat.getText());
-        produtoSelecionado.setPreco(new BigDecimal(fieldPreco.getText()));
+        produtoSelecionado.setPreco(new Double(fieldPreco.getText()));
         produtoSelecionado.setQuantidade(new Integer(fieldEstoque.getText()));
 
         try {
