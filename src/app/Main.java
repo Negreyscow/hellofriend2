@@ -116,6 +116,13 @@ public class Main extends Application {
 		BorderPane telaVenda = loader.load();
 		mainLayout.setCenter(telaVenda);
 
+	}
+
+	public static void showSecondViewVenda() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("view/secondViewVendas.fxml"));
+		BorderPane concluirVenda = loader.load();
+		mainLayout.setCenter(concluirVenda);
 
 	}
 

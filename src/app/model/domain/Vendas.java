@@ -2,23 +2,14 @@ package app.model.domain;
 
 import java.math.BigDecimal;
 
-public class Produtos {
+/**
+ * Created by Leonardo on 19/02/2017.
+ */
+public class Vendas {
 
-    private Integer cdproduto;
     private String nome;
     private BigDecimal preco;
     private Integer quantidade;
-    private String categoria;
-
-
-
-    public Integer getCdproduto() {
-        return cdproduto;
-    }
-
-    public void setCdproduto(Integer cdproduto) {
-        this.cdproduto = cdproduto;
-    }
 
     public String getNome() {
         return nome;
@@ -42,13 +33,5 @@ public class Produtos {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 }

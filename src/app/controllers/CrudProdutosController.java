@@ -45,7 +45,7 @@ public class CrudProdutosController implements Initializable {
     private TableColumn<Produtos, String> produtoColumn;
 
     @FXML
-    private TableColumn<Produtos, Integer> categoriaColumn;
+    private TableColumn<Produtos, String> categoriaColumn;
 
     @FXML
     private TableColumn<Produtos, Integer> quantidadeColumn;
@@ -71,7 +71,7 @@ public class CrudProdutosController implements Initializable {
         produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
         precoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
         quantidadeColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
-        categoriaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("cdcategoria"));
+        categoriaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("idproduto"));
 
         //goBuscar();
 

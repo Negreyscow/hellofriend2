@@ -19,6 +19,13 @@ public class AlterarProdutoController implements Initializable{
 
     public void initialize(URL location, ResourceBundle resources) {
         dao = new produtosDAO();
+
+        fieldDescricao.getText();
+        fieldPreco.getText();
+        fieldEstoque.getText();
+        fieldProdutoCat.getText();
+
+
     }
 
     private Produtos produtoSelecionado;
@@ -42,18 +49,18 @@ public class AlterarProdutoController implements Initializable{
     @FXML
     void actionAlterar() {
         produtoSelecionado.setNome(fieldDescricao.getText());
-        produtoSelecionado.setCategoria( new Integer(fieldProdutoCat.getText()));
+        produtoSelecionado.setCategoria(fieldProdutoCat.getText());
         produtoSelecionado.setPreco(new BigDecimal(fieldPreco.getText()));
         produtoSelecionado.setQuantidade(new Integer(fieldEstoque.getText()));
 
         try {
 
             dao.alterar(produtoSelecionado);
-            exibirDialogoInformacao("Usuario Atualizado com sucesso");
+            exibirDialogoInformacao("Produto Atualizado com sucesso");
 
 
         } catch (Exception e) {
-            exibirDialogoErro("Falha ao atualizar o funcionario!");
+            exibirDialogoErro("Falha ao atualizar o produto!");
             e.printStackTrace();
         }
     }
