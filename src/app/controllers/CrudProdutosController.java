@@ -39,7 +39,7 @@ public class CrudProdutosController implements Initializable {
     private TableView<Produtos> produtoTable;
 
     @FXML
-    private TableColumn<Produtos, Integer> idColumn;
+    private TableColumn<Produtos, String> idColumn;
 
     @FXML
     private TableColumn<Produtos, String> produtoColumn;
@@ -67,11 +67,11 @@ public class CrudProdutosController implements Initializable {
         //consultarFuncionarios();
         goBuscar();
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("cdproduto"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("cdproduto"));
         produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
         precoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
         quantidadeColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
-        categoriaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("idproduto"));
+        categoriaColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("categoria"));
 
         //goBuscar();
 

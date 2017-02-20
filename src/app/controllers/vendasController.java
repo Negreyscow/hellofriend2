@@ -126,7 +126,7 @@ public class vendasController implements Initializable {
         dao = new produtosDAO();
 
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("idproduto"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("categoria"));
         produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
         valorColumn.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
         qtdColumn.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
