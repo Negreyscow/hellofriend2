@@ -138,19 +138,22 @@ public class CrudFuncionarioControllerNew implements Initializable {
     }
 
     @FXML
-    void exibirAbaAtualizada() {
+    Funcionario exibirAbaAtualizada() {
 
         funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
 
+
         if (funcioarioSelecionado == null) {
             exibirDialogoErro("Não há funcionario selecionado!");
-        } else {
+        } else {/*
             FuncionarioNome.setText(funcioarioSelecionado.getNome());
             FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
             FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
-            FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());
+            FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());*/
+            return funcioarioSelecionado;
         }
 
+        return null;
     }
 
 

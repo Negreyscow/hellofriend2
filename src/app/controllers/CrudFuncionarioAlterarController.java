@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.model.dao.funcionarioDAO;
+import app.controllers.CrudFuncionarioControllerNew;
 import app.model.dao.produtosDAO;
 import app.model.domain.Funcionario;
 import javafx.event.ActionEvent;
@@ -26,12 +27,13 @@ public class CrudFuncionarioAlterarController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dao = new funcionarioDAO();
-       // AtualizarFuncionario();
+
     }
 
     @FXML
     private funcionarioDAO dao;
 
+    CrudFuncionarioControllerNew theLast;
 
     @FXML
     private TextField FuncionarioNome;
@@ -103,9 +105,10 @@ public class CrudFuncionarioAlterarController implements Initializable {
 
 
     private void exibirAtualizado() {
-/*
-        funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
 
+        //funcioarioSelecionado = theLast.funcionarios.getSelectionModel().getSelectedItem();
+        funcioarioSelecionado = theLast.exibirAbaAtualizada();
+/*
         if (funcioarioSelecionado == null){
             exibirDialogoErro("Não há funcionario selecionado!");
         } else { */

@@ -77,6 +77,9 @@ public class CadastrarProdutoController implements Initializable {
             e.printStackTrace();
         }
 
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
+
     }
 
     @FXML

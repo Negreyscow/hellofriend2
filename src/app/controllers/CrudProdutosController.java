@@ -132,6 +132,7 @@ public class CrudProdutosController implements Initializable {
         Scene scene = new Scene(cadastrarProduto);
         addDialogStage.setScene(scene);
         addDialogStage.showAndWait();
+        goBuscar();
 
     }
 
