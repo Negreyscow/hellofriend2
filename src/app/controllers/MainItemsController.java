@@ -17,7 +17,7 @@ public class MainItemsController {
 	@FXML
 	private void goGerenciar() throws IOException{
 		//main = new Main();
-		main.showGerenciarScene();
+		main.showAddUserStage();
 		
 	}
 

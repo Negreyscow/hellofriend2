@@ -1,13 +1,20 @@
 package app.controllers;
 
+import app.Main;
 import app.model.dao.funcionarioDAO;
 import app.model.domain.Funcionario;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
@@ -35,221 +42,174 @@ public class CrudFuncionarioControllerNew implements Initializable {
 
     }
 
-        //@FXML
-        //private TabPane tabPane;
 
-       // @FXML
-        //private Tab tabCadastrar;
 
-        @FXML
-        private TextField novoFuncionarioNome;
+    @FXML
+    private TextField fieldFuncionarioConsulta;
 
-        @FXML
-        private DatePicker novoFuncionarioNascimento;
 
-        @FXML
-        private TextField novoFuncionarioCargo;
+    @FXML
+    private TableView<Funcionario> funcionarios;
 
-        @FXML
-        private TextField novoFuncionarioSalario;
+    @FXML
+    private TableColumn<Funcionario, Integer> idFuncionarioColumn;
 
-        @FXML
-        private Button buttonLimpar;
+    @FXML
+    private TableColumn<Funcionario, String> nomeFuncionarioColumn;
 
-        @FXML
-        private Button buttonSalvar;
+    @FXML
+    private TableColumn<Funcionario, Date> nascimentoFuncionarioColumn;
 
-        @FXML
-        private Tab tabConsultar;
+    @FXML
+    private TableColumn<Funcionario, String> cargoFuncionarioColumn;
 
-        @FXML
-        private TextField fieldFuncionarioConsulta;
+    @FXML
+    private TableColumn<Funcionario, BigDecimal> salarioFuncionarioColumn;
 
-        @FXML
-        private Button buttonConsultar;
+    @FXML
+    private Button buttonDeletar;
 
-        @FXML
-        private TableView<Funcionario> funcionarios;
+    @FXML
+    private Button buttonAtualizar;
 
-        @FXML
-        private TableColumn<Funcionario, Integer> idFuncionarioColumn;
 
-        @FXML
-        private TableColumn<Funcionario, String> nomeFuncionarioColumn;
+    @FXML
+    private TextField FuncionarioNome;
 
-        @FXML
-        private TableColumn<Funcionario, Date> nascimentoFuncionarioColumn;
+    @FXML
+    private DatePicker FuncionarioNascimento;
 
-        @FXML
-        private TableColumn<Funcionario, String> cargoFuncionarioColumn;
+    @FXML
+    private TextField FuncionarioCargo;
 
-        @FXML
-        private TableColumn<Funcionario, BigDecimal> salarioFuncionarioColumn;
+    @FXML
+    private TextField FuncionarioSalario;
 
-        @FXML
-        private Button buttonDeletar;
+    @FXML
+    private Button buttonSalvar1;
 
-        @FXML
-        private Button buttonAtualizar;
+    private funcionarioDAO dao;
 
-        @FXML
-        private Tab tabAtualizar;
-
-        @FXML
-        private TextField FuncionarioNome;
-
-        @FXML
-        private DatePicker FuncionarioNascimento;
-
-        @FXML
-        private TextField FuncionarioCargo;
-
-        @FXML
-        private TextField FuncionarioSalario;
-
-        @FXML
-        private Button buttonSalvar1;
-
-        private funcionarioDAO dao;
-
-        private Funcionario funcioarioSelecionado;
+    private Funcionario funcioarioSelecionado;
 
 
 
-        @FXML
-        void salvarFuncionario() {
+    @FXML
+    void consultarFuncionarios() {
 
-            Funcionario funcionario = new Funcionario();
+        try {
+            List<Funcionario> resultado = dao.consultar(fieldFuncionarioConsulta.getText());
 
-            funcionario.setNome(novoFuncionarioNome.getText());
-            funcionario.setSalario(new BigDecimal(novoFuncionarioSalario.getText()));
-            funcionario.setCargo(novoFuncionarioCargo.getText());
-            funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
-
-
-            try {
-
-                dao.cadastrar(funcionario);
-                exibirDialogoInformacao("Usuario Cadastrado com sucesso!");
-                limparCadastroNovoFuncionario();
-                consultarFuncionarios();
-                tabAtualizar.setDisable(true);
-
-            } catch (Exception e){
-                exibirDialogoErro("Falha ao Cadastrar Usuario!");
-                e.printStackTrace();
-            }
-        }
-
-        @FXML
-        void AtualizarFuncionario(){
-
-            funcioarioSelecionado.setNome(FuncionarioNome.getText());
-            funcioarioSelecionado.setCargo(FuncionarioCargo.getText());
-            funcioarioSelecionado.setSalario(new BigDecimal(FuncionarioSalario.getText()));
-            funcioarioSelecionado.setDataNascimento(Date.valueOf(FuncionarioNascimento.getValue()));
-
-            try {
-
-                dao.atualizar(funcioarioSelecionado);
-                exibirDialogoInformacao("Usuario Atualizado com sucesso");
-                consultarFuncionarios();
-
-            } catch (Exception e) {
-                exibirDialogoErro("Falha ao atualizar o funcionario!");
-                e.printStackTrace();
-            }
-
-
-        }
-
-        @FXML
-        void consultarFuncionarios() {
-
-            try {
-                List<Funcionario> resultado = dao.consultar(fieldFuncionarioConsulta.getText());
-
-                if(resultado.isEmpty()){
-                    exibirDialogoInformacao("Nenhum Resultado foi encontrado");
-                } else {
-
-                    funcionarios.setItems(FXCollections.observableList(resultado));
-
-                }
-            } catch (Exception e){
-                exibirDialogoErro("Falha ao realizar a consulta");
-                e.printStackTrace();
-            }
-
-        }
-
-        @FXML
-        void deletarFuncionario() {
-
-            if (funcionarios.getSelectionModel().getSelectedItem() == null){
-                exibirDialogoErro("Não há funcionario selecionado!");
+            if (resultado.isEmpty()) {
+                exibirDialogoInformacao("Nenhum Resultado foi encontrado");
             } else {
 
-                if (exibirDialogoConfirmação("Confirmar a exclusão do funcionario selecionado?")==true){
-                    try {
+                funcionarios.setItems(FXCollections.observableList(resultado));
 
-                        dao.deletar(funcionarios.getSelectionModel().getSelectedItem().getId());
-                        exibirDialogoInformacao("Funcionario Deletado com sucuesso!");
-                        consultarFuncionarios();
+            }
+        } catch (Exception e) {
+            exibirDialogoErro("Falha ao realizar a consulta");
+            e.printStackTrace();
+        }
 
-                    } catch (Exception e){
-                        exibirDialogoErro("Falha ao deletar o funcionario");
-                        e.printStackTrace();
-                    }
+    }
+
+    @FXML
+    void deletarFuncionario() {
+
+        if (funcionarios.getSelectionModel().getSelectedItem() == null) {
+            exibirDialogoErro("Não há funcionario selecionado!");
+        } else {
+
+            if (exibirDialogoConfirmação("Confirmar a exclusão do funcionario selecionado?") == true) {
+                try {
+
+                    dao.deletar(funcionarios.getSelectionModel().getSelectedItem().getId());
+                    exibirDialogoInformacao("Funcionario Deletado com sucuesso!");
+                    consultarFuncionarios();
+
+                } catch (Exception e) {
+                    exibirDialogoErro("Falha ao deletar o funcionario");
+                    e.printStackTrace();
                 }
-
-            }
-        }
-
-        @FXML
-        void exibirAbaAtualizada() {
-
-            funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
-
-            if (funcioarioSelecionado == null){
-                exibirDialogoErro("Não há funcionario selecionado!");
-            } else {
-                FuncionarioNome.setText(funcioarioSelecionado.getNome());
-                FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
-                FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
-                FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());
             }
 
         }
+    }
 
-        @FXML
-        void limparCadastroNovoFuncionario(){
-            novoFuncionarioNome.clear();
-            novoFuncionarioNascimento.setValue(null);
-            novoFuncionarioCargo.clear();
-            novoFuncionarioSalario.clear();
+    @FXML
+    void exibirAbaAtualizada() {
+
+        funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
+
+        if (funcioarioSelecionado == null) {
+            exibirDialogoErro("Não há funcionario selecionado!");
+        } else {
+            FuncionarioNome.setText(funcioarioSelecionado.getNome());
+            FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
+            FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
+            FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());
         }
 
+    }
 
-        private void limparCadastroAtualizacaoFuncionario(){
 
-            novoFuncionarioNome.clear();
-            novoFuncionarioNascimento.setValue(null);
-            novoFuncionarioCargo.clear();
-            novoFuncionarioSalario.clear();
 
-        }
+/*
+    private void limparCadastroAtualizacaoFuncionario() {
 
-        private void exibirDialogoInformacao(String informacao){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Informação");
-            alert.setHeaderText(null);
-            alert.setContentText(informacao);
+        novoFuncionarioNome.clear();
+        novoFuncionarioNascimento.setValue(null);
+        novoFuncionarioCargo.clear();
+        novoFuncionarioSalario.clear();
 
-            alert.showAndWait();
-        }
+    }*/
 
-    private void exibirDialogoErro(String erro){
+    @FXML
+    void goAlterarDados() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/viewAlterarFuncionariosNew.fxml"));
+        BorderPane cadastrarProduto = loader.load();
+
+        Stage addDialogStage = new Stage();
+        addDialogStage.setTitle("Cadastrar Produto");
+        addDialogStage.initModality(Modality.WINDOW_MODAL);
+        // addDialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(cadastrarProduto);
+        addDialogStage.setScene(scene);
+        addDialogStage.showAndWait();
+        consultarFuncionarios();
+
+    }
+    @FXML
+    void goCadastrarFuncionario() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/viewCadastrarFuncionariosNew.fxml"));
+        BorderPane cadastrarProduto = loader.load();
+
+        Stage addDialogStage = new Stage();
+        addDialogStage.setTitle("Cadastrar Produto");
+        addDialogStage.initModality(Modality.WINDOW_MODAL);
+        // addDialogStage.initOwner(primaryStage);
+        Scene scene = new Scene(cadastrarProduto);
+        addDialogStage.setScene(scene);
+        addDialogStage.showAndWait();
+        consultarFuncionarios();
+
+    }
+
+    private void exibirDialogoInformacao(String informacao) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Informação");
+        alert.setHeaderText(null);
+        alert.setContentText(informacao);
+
+        alert.showAndWait();
+    }
+
+    private void exibirDialogoErro(String erro) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erro");
         alert.setHeaderText(null);
@@ -258,7 +218,7 @@ public class CrudFuncionarioControllerNew implements Initializable {
         alert.showAndWait();
     }
 
-    private boolean exibirDialogoConfirmação(String confirmacao){
+    private boolean exibirDialogoConfirmação(String confirmacao) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmação");
         alert.setHeaderText(null);
@@ -270,10 +230,6 @@ public class CrudFuncionarioControllerNew implements Initializable {
         return false;
 
     }
-
-
-
-
 
 
 }

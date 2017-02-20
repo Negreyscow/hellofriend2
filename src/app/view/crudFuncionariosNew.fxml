@@ -35,7 +35,7 @@
                <items>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="produtoTable" prefHeight="486.0" prefWidth="495.0">
+                        <TableView fx:id="funcionarios" prefHeight="486.0" prefWidth="495.0">
                           <columns>
                             <TableColumn fx:id="idFuncionarioColumn" prefWidth="75.0" text="id" />
                             <TableColumn fx:id="nomeFuncionarioColumn" prefWidth="75.0" text="Nome" />
@@ -49,12 +49,12 @@
                         </TableView>
                         <VBox prefHeight="485.0" prefWidth="257.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" minHeight="60.0" mnemonicParsing="false" onAction="#goCadastrarButton" prefHeight="60.0" prefWidth="138.0" text="Cadastrar funcionario">
+                              <Button alignment="CENTER" contentDisplay="CENTER" minHeight="60.0" mnemonicParsing="false" onAction="#goCadastrarFuncionario" prefHeight="60.0" prefWidth="138.0" text="Cadastrar funcionario">
                                  <VBox.margin>
                                     <Insets left="80.0" top="50.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="buttonAtualizar" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="149.0" minHeight="60.0" mnemonicParsing="false" onAction="#exibirAbaAtualizada" prefHeight="60.0" prefWidth="138.0" text="Alterar dados">
+                              <Button fx:id="buttonAtualizar" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="149.0" minHeight="60.0" mnemonicParsing="false" onAction="#goAlterarDados" prefHeight="60.0" prefWidth="138.0" text="Alterar dados">
                                  <VBox.margin>
                                     <Insets left="80.0" top="30.0" />
                                  </VBox.margin></Button>
