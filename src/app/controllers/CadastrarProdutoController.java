@@ -58,7 +58,9 @@ public class CadastrarProdutoController implements Initializable {
         Produtos produto = new Produtos();
 
         produto.setNome(fieldDescricao.getText());
-        produto.setPreco(new Double(fieldPreco.getText()));
+        String price =fieldPreco.getText();
+        price=price.replace(',','.');
+        produto.setPreco(new Double(price));
         produto.setQuantidade(new Integer(fieldEstoque.getText()));
         produto.setCategoria(fieldProdutoCat.getText());
 
