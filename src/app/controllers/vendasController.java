@@ -29,6 +29,12 @@ public class vendasController implements Initializable {
 
     private Main main;
 
+    public ListView<String> listView;
+
+    private List<String> listListView = new ArrayList();
+
+    public ObservableList<String> observableListView;
+
     private produtosDAO dao;
 
     private Produtos produtoSelecionado;
@@ -79,7 +85,7 @@ public class vendasController implements Initializable {
 
     private List<Produtos> listCarrinho = new ArrayList();
 
-    private ObservableList<Produtos> observableListCarrinho;
+    public ObservableList<Produtos> observableListCarrinho;
 
     @FXML
     private Label fieldTotal;
@@ -146,6 +152,25 @@ public class vendasController implements Initializable {
 
     }
 
+    public void carregarListView(){
+
+        produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
+        if (!listListView.contains(produtoSelecionado.getNome()))
+        listListView.add(produtoSelecionado.getNome() + "           -          Valor R$: " + produtoSelecionado.getPreco());
+        else
+            System.out.println("works!");
+
+        observableListView = FXCollections.observableArrayList(listListView);
+        listView.setItems(observableListView);
+    }
+
+    @FXML
+    void removerList(){
+        String algo = listView.getSelectionModel().getSelectedItem();
+        listListView.remove(algo);
+        listView.getItems().remove(algo);
+    }
+
     public void carregarTableViewCarrinho(){
 
         produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
@@ -165,16 +190,23 @@ public class vendasController implements Initializable {
 
     }
 
+    public ObservableList<Produtos> getTableView(){
+        return observableListCarrinho;
+    }
+
     @FXML
     public void removerTableViewCarrinho(){
         Produtos produto = tableCarrinho.getSelectionModel().getSelectedItem();
         tableCarrinho.getItems().remove(produto);
+
     }
+
 
     @FXML
     void goCarrinho(){
 
-        carregarTableViewCarrinho();
+       // carregarTableViewCarrinho();
+        carregarListView();
         //pega o item selecionado na tabela
 
         //produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
@@ -214,7 +246,12 @@ public class vendasController implements Initializable {
     @FXML
     void goNextView() throws IOException {
 
-        main.showSecondViewVenda();
+        if (listView.getItems().isEmpty()){
+           exibirDialogoErro("Carrinho vazio!");
+        }
+        else
+            main.showSecondViewVenda();
+
 
     }
 

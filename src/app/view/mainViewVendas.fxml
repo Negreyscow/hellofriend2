@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -104,7 +105,7 @@
                               <Insets top="10.0" />
                            </opaqueInsets>
                            <children>
-                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#removerTableViewCarrinho" prefHeight="44.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
+                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#removerList" prefHeight="44.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="10.0" top="10.0" />
                                  </HBox.margin>
@@ -118,6 +119,7 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <ListView fx:id="listView" layoutX="7.0" layoutY="384.0" prefHeight="200.0" prefWidth="285.0" />
                </children>
             </AnchorPane>
         </items>
