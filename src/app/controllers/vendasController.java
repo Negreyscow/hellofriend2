@@ -29,6 +29,7 @@ public class vendasController implements Initializable {
 
     private Main main;
 
+    @FXML
     public ListView<String> listView;
 
     private List<String> listListView = new ArrayList();
@@ -155,13 +156,17 @@ public class vendasController implements Initializable {
     public void carregarListView(){
 
         produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
-        if (!listListView.contains(produtoSelecionado.getNome()))
-        listListView.add(produtoSelecionado.getNome() + "           -          Valor R$: " + produtoSelecionado.getPreco());
-        else
-            System.out.println("works!");
+        if (produtoSelecionado == null)
+            exibirDialogoInformacao("Precisa selecionar um item!");
+        else {
+            if (!listListView.contains(produtoSelecionado.getNome()))
+                listListView.add(produtoSelecionado.getNome() + "           -          Valor R$: " + produtoSelecionado.getPreco());
+            else
+                System.out.println("works!");
 
-        observableListView = FXCollections.observableArrayList(listListView);
-        listView.setItems(observableListView);
+            observableListView = FXCollections.observableArrayList(listListView);
+            listView.setItems(observableListView);
+        }
     }
 
     @FXML
@@ -251,7 +256,6 @@ public class vendasController implements Initializable {
         }
         else
             main.showSecondViewVenda();
-
 
     }
 

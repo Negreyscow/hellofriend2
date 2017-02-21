@@ -6,6 +6,7 @@ import app.model.domain.Produtos;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -16,29 +17,15 @@ import java.util.ResourceBundle;
 /**
  * Created by Leonardo on 20/02/2017.
  */
-public class concluirVendasController implements Initializable {
+public class concluirVendasController extends vendasController {
 
 
     private Produtos produtos;
-
-    private vendasController vendas;
 
     private produtosDAO dao;
 
     private Main main;
 
-
-    @FXML
-    private TableView<Produtos> tableVendasItems;
-
-    @FXML
-    private TableColumn<Produtos, String> produtoColumn;
-
-    @FXML
-    private TableColumn<Produtos, Integer> qtdColumn;
-
-    @FXML
-    private TableColumn<Produtos, Double> valorColumn;
 
     @FXML
     private Label fieldTotal;
@@ -49,10 +36,10 @@ public class concluirVendasController implements Initializable {
         dao = new produtosDAO();
 
     }
+
     @FXML
     private void actionVoltar() throws IOException {
         main.showViewVenda();
-
     }
 
 
