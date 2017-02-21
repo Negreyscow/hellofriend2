@@ -24,7 +24,7 @@ public class funcionarioDAO { //esta classe realizar as operações básicas de 
 
     public void cadastrar(Funcionario funcionario){
 
-        String sql = "insert into funcionarios (nome, data_nascimento, cargo, salario) values (?, ?, ?, ?)";
+        String sql = "insert into funcionarios (nome, data_nascimento, cargo, salario, password) values (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -33,6 +33,7 @@ public class funcionarioDAO { //esta classe realizar as operações básicas de 
             statement.setDate(2, funcionario.getDataNascimento());
             statement.setString(3, funcionario.getCargo());
             statement.setBigDecimal(4, funcionario.getSalario());
+            statement.setString(5,funcionario.getPassword());
 
             statement.execute();
             statement.close();

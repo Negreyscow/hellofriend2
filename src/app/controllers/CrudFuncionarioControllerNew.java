@@ -43,7 +43,6 @@ public class CrudFuncionarioControllerNew implements Initializable {
     }
 
 
-
     @FXML
     private TextField fieldFuncionarioConsulta;
 
@@ -92,6 +91,7 @@ public class CrudFuncionarioControllerNew implements Initializable {
 
     private Funcionario funcioarioSelecionado;
 
+    public Funcionario ultimoHomem;
 
 
     @FXML
@@ -138,37 +138,43 @@ public class CrudFuncionarioControllerNew implements Initializable {
     }
 
     @FXML
-    Funcionario exibirAbaAtualizada() {
+    void exibirAbaAtualizada() throws IOException {
 
         funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
 
 
+
         if (funcioarioSelecionado == null) {
             exibirDialogoErro("Não há funcionario selecionado!");
-        } else {/*
+        } else {
+/*
             FuncionarioNome.setText(funcioarioSelecionado.getNome());
             FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
             FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
             FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());*/
-            return funcioarioSelecionado;
+            retornaFuncionario(funcioarioSelecionado);
+            goAlterarDados();
         }
 
-        return null;
+    }
+
+    public void retornaFuncionario(Funcionario pessoa) {
+        ultimoHomem = pessoa;
     }
 
 
+    /*
+        private void limparCadastroAtualizacaoFuncionario() {
 
-/*
-    private void limparCadastroAtualizacaoFuncionario() {
+            novoFuncionarioNome.clear();
+            novoFuncionarioNascimento.setValue(null);
+            novoFuncionarioCargo.clear();
+            novoFuncionarioSalario.clear();
 
-        novoFuncionarioNome.clear();
-        novoFuncionarioNascimento.setValue(null);
-        novoFuncionarioCargo.clear();
-        novoFuncionarioSalario.clear();
+        }*/
 
-    }*/
 
-    @FXML
+    //@FXML
     void goAlterarDados() throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -185,6 +191,7 @@ public class CrudFuncionarioControllerNew implements Initializable {
         consultarFuncionarios();
 
     }
+
     @FXML
     void goCadastrarFuncionario() throws IOException {
 
