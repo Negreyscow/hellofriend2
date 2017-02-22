@@ -1,5 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.concluirVendasController" />
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.concluirVendasController">
+   <center>
+      <Pane prefHeight="494.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="305.0" text="Finalizar Venda - Total: ">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="118.0" text="00,00">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <VBox prefHeight="600.0" prefWidth="400.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="155.0" text="Concluir Venda à Vista">
+                           <VBox.margin>
+                              <Insets left="120.0" top="120.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#concluirVenda" prefHeight="47.0" prefWidth="105.0" text="Concluir">
+                           <VBox.margin>
+                              <Insets left="150.0" top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#actionVoltar" prefHeight="33.0" prefWidth="95.0" text="Voltar">
+                           <VBox.margin>
+                              <Insets left="50.0" top="250.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="600.0" prefWidth="421.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="155.0" text="Concluir Venda à Prazo">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="120.0" top="120.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane prefHeight="90.0" prefWidth="360.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="148.0" />
+                            <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" maxWidth="309.0" minWidth="10.0" prefWidth="263.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Nome Cliente:" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Data da Venda:" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="N° Parcelas:" GridPane.rowIndex="2" />
+                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField prefHeight="14.0" prefWidth="210.0" GridPane.columnIndex="1" />
+                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Button mnemonicParsing="false" onAction="#concluirVenda" prefHeight="47.0" prefWidth="105.0" text="Concluir">
+                           <VBox.margin>
+                              <Insets left="150.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

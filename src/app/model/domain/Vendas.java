@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Vendas {
 
     private String nome;
-    private BigDecimal preco;
+    private Double preco;
     private Integer quantidade;
 
     public String getNome() {
@@ -19,11 +19,11 @@ public class Vendas {
         this.nome = nome;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 

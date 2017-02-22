@@ -64,6 +64,11 @@ public class concluirVendasController extends vendasController {
         main.showViewVenda();
     }
 
+    @FXML
+    void concluirVenda(){
+
+    }
+
 
     public void carregarListView() {
 
