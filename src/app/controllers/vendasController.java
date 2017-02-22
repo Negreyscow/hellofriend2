@@ -132,7 +132,7 @@ public class vendasController implements Initializable {
         carregarComboBox();
 
         dao = new produtosDAO();
-
+        goBuscar();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("categoria"));
         produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
