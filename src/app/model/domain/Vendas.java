@@ -16,6 +16,15 @@ public class Vendas {
     private String nomeCliente;
     private Date dataVenda;
     private Integer parcelas;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNomeProduto() {
         return nomeProduto;

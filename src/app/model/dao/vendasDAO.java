@@ -1,6 +1,7 @@
 package app.model.dao;
 
 import app.model.database.ConnectionFactory;
+import app.model.domain.Funcionario;
 import app.model.domain.Produtos;
 import app.model.domain.Vendas;
 
@@ -21,7 +22,7 @@ public class vendasDAO {
 
     public void cadastrar(Vendas vendas) throws SQLException {
 
-        String sql = "insert into produtos (data_venda, valor, nome_cliente, parcelas) values (?, ?, ?,?)";
+        String sql = "insert into vendas (data_venda, valor, nome_cliente, parcelas) values (?, ?, ?,?)";
 
 
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -36,11 +37,13 @@ public class vendasDAO {
         statement.close();
 
     }
-    public List<Vendas> consultar(String nomeVenda){
+
+
+    public List<Vendas> consultar(String nomeCliente){
 
         List<Vendas> vendas = new ArrayList<>();
 
-        String sql = "select * from produtos where nome like '%" + nomeVenda + "%'";
+        String sql = "select * from vendas where nomeCliente like '%" + nomeCliente + "%'";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -50,10 +53,11 @@ public class vendasDAO {
 
                 Vendas venda = new Vendas();
 
-                venda.setDataVenda(resultSet.getDate("data_venda"));
+                venda.setId(resultSet.getInt("id"));
                 venda.setPreco(resultSet.getDouble("valor"));
+                venda.setDataVenda(resultSet.getDate("data_venda"));
                 venda.setParcelas(resultSet.getInt("parcelas"));
-                venda.setNome(resultSet.getString("nome_cliente"));
+                venda.setNomeCliente(resultSet.getString("nomeCliente"));
 
 
                 vendas.add(venda);
@@ -70,13 +74,6 @@ public class vendasDAO {
 
         return vendas;
     }
-
-
-
-
-
-
-
 
 
 

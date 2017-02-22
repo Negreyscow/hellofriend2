@@ -18,6 +18,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 import static app.Main.mainLayout;
@@ -130,6 +131,8 @@ public class vendasController extends Main implements Initializable {
     public double getTotalCompra(){
         return this.totalCompra;
     }
+
+
 
 
     public void carregarListView(){
@@ -255,7 +258,7 @@ public class vendasController extends Main implements Initializable {
     }
 
     @FXML
-    void goNextView() throws IOException {
+    void goNextView() throws IOException, SQLException {
 
         if (listView.getItems().isEmpty()){
            exibirDialogoErro("Carrinho vazio!");
@@ -263,6 +266,8 @@ public class vendasController extends Main implements Initializable {
         else{
 
             exibirDialogoConfirmação("Confirmar a seleção de items");
+            System.out.println(totalCompra);
+            dao.cadastrarTotal(totalCompra);
             showSecondViewVenda(totalCompra);
         }
 

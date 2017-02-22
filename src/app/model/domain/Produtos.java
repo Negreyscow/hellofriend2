@@ -9,9 +9,15 @@ public class Produtos {
     private double preco;
     private Integer quantidade;
     private String categoria;
+    private double total;
 
+    public double getTotal() {
+        return total;
+    }
 
-
+    public void setTotal(double total) {
+        this.total = total;
+    }
     public Integer getCdproduto() {
         return cdproduto;
     }

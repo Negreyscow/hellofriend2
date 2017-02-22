@@ -43,6 +43,20 @@ public class  produtosDAO { //esta classe realizar as operações básicas de ma
 
     }
 
+    public void cadastrarTotal(double totale) throws SQLException {
+
+        String sql = "insert into tempTotal (total) values (?)";
+
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        statement.setDouble(1,totale);
+
+        statement.execute();
+        statement.close();
+
+    }
+
     public void alterar(Produtos produtos) throws SQLException{
 
         String sql = "update produtos set nome=?, preco=?, quantidade=?, idproduto=? where cdproduto=?";
