@@ -94,7 +94,7 @@ public class vendasController implements Initializable {
     @FXML
     private Label fieldTotal;
 
-    private double totalCompra = 0;
+    public double totalCompra;
 
     private static ArrayList<String> words;
 
@@ -126,6 +126,10 @@ public class vendasController implements Initializable {
         //não é possivel popular com listClientes
         comboBoxBusca.setItems(observableListComboBox);
 
+    }
+
+    public double getTotalCompra(){
+        return this.totalCompra;
     }
 
 

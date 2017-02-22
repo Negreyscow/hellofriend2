@@ -66,6 +66,8 @@ public class concluirVendasController extends vendasController {
 
     @FXML
     void concluirVenda(){
+        vendasController teste = new vendasController();
+        System.out.println(teste.getTotalCompra());
 
     }
 
