@@ -30,10 +30,12 @@ public class vendasController implements Initializable {
 
     private Main main;
 
+    private List<String> listAux = new ArrayList<>();
+
     @FXML
     public ListView<String> listView;
 
-    private List<String> listListView = new ArrayList();
+    public List<String> listListView;
 
     public ObservableList<String> observableListView;
 
@@ -94,8 +96,7 @@ public class vendasController implements Initializable {
 
     private double totalCompra = 0;
 
-
-
+    private static ArrayList<String> words;
 
 
     @Override
@@ -105,6 +106,7 @@ public class vendasController implements Initializable {
 
         dao = new produtosDAO();
         goBuscar();
+        listListView = new ArrayList<String>();
 
         idColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("categoria"));
         produtoColumn.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
@@ -126,7 +128,9 @@ public class vendasController implements Initializable {
 
     }
 
+
     public void carregarListView(){
+
 
         produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
         if (produtoSelecionado == null)
@@ -137,10 +141,15 @@ public class vendasController implements Initializable {
             else
                 System.out.println("works!");
 
+
             observableListView = FXCollections.observableArrayList(listListView);
             listView.setItems(observableListView);
         }
         carregarTableViewCarrinho();
+    }
+
+    public List<String> getList(){
+        return listListView;
     }
 
     @FXML
@@ -163,6 +172,11 @@ public class vendasController implements Initializable {
 
         listListView.remove(algo);
         listView.getItems().remove(algo);
+        listAux.remove(algo);
+    }
+
+    public List getListAux(){
+        return listAux;
     }
 
     public void carregarTableViewCarrinho(){

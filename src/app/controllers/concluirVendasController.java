@@ -3,6 +3,8 @@ package app.controllers;
 import app.Main;
 import app.model.dao.produtosDAO;
 import app.model.domain.Produtos;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -12,6 +14,8 @@ import javafx.scene.control.TableView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -19,8 +23,24 @@ import java.util.ResourceBundle;
  */
 public class concluirVendasController extends vendasController {
 
+    /*public concluirVendasController(){
+        vendasClass = new vendasController();
+        List<String> listV = vendasClass.getList();
+        observableListView = FXCollections.observableArrayList(listV);
+        listView.setItems(observableListView);
+
+    }*/
+
 
     private Produtos produtos;
+
+    vendasController vendasClass;
+
+    private List<String> ListAux = new ArrayList();
+
+    public ObservableList<String> observableListView2;
+
+    public ListView<String> listView;
 
     private produtosDAO dao;
 
@@ -35,6 +55,8 @@ public class concluirVendasController extends vendasController {
 
         dao = new produtosDAO();
 
+        //carregarListView();
+
     }
 
     @FXML
@@ -43,11 +65,22 @@ public class concluirVendasController extends vendasController {
     }
 
 
+    public void carregarListView() {
 
 
+        //ListAux.add("Eu");
 
+        observableListView = FXCollections.observableArrayList(ListAux);
+        listView.setItems(observableListView);
+    }
 
-
-
+    public void setListAux(String str){
+        ListAux.add(str);
+    }
 
 }
+
+
+
+
+

@@ -30,7 +30,8 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
     public void initialize(URL location, ResourceBundle resources) {
 
         dao = new funcionarioDAO();
-        setarLabels();
+        //setarLabels();
+
 
     }
 

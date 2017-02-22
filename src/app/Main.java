@@ -29,18 +29,18 @@ public class Main extends Application {
 		this.primaryStage.setTitle("MaisVoce");
 
 
-        //showLogin();
+        showLogin();
 		showMainView();
 		showMainItems();
 	}
 
 	private void showLogin() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("login/login.fxml"));
+		loader.setLocation(Main.class.getResource("view/login.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
-        scene.getStylesheets().add("app/Styles/myStyle.css");
+        //scene.getStylesheets().add("app/Styles/myStyle.css");
 		primaryStage.show();
 	}
 
@@ -79,7 +79,7 @@ public class Main extends Application {
 	public static void showAddUserStage() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/crudFuncionariosNew.fxml"));
+		loader.setLocation(Main.class.getResource("view/crudFuncionariosNew2.fxml"));
 		BorderPane showCrudFuncionario = loader.load();
 		mainLayout.setCenter(showCrudFuncionario);
 	}
