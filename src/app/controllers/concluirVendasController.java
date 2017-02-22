@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Leonardo on 20/02/2017.
  */
-public class concluirVendasController extends vendasController {
+public class concluirVendasController extends Main implements Initializable{
 
     /*public concluirVendasController(){
         vendasClass = new vendasController();
@@ -44,24 +44,24 @@ public class concluirVendasController extends vendasController {
 
     private produtosDAO dao;
 
-    private Main main;
+    //private Main main;
 
 
     @FXML
-    private Label fieldTotal;
+    private Label FieldTotal;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         dao = new produtosDAO();
-
+        FieldTotal.setText(Double.toString(totalCompra));
         //carregarListView();
 
     }
 
     @FXML
     private void actionVoltar() throws IOException {
-        main.showViewVenda();//
+        showViewVenda();//
     }
 
     @FXML
@@ -77,8 +77,8 @@ public class concluirVendasController extends vendasController {
 
         //ListAux.add("Eu");
 
-        observableListView = FXCollections.observableArrayList(ListAux);
-        listView.setItems(observableListView);
+        //observableListView = FXCollections.observableArrayList(ListAux);
+        //listView.setItems(observableListView);
     }
 
     public void setListAux(String str){

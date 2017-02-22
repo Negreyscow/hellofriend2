@@ -26,9 +26,8 @@ import static app.Main.mainLayout;
  * Created by Leonardo on 19/02/2017.
  */
 
-public class vendasController implements Initializable {
+public class vendasController extends Main implements Initializable {
 
-    private Main main;
 
     private List<String> listAux = new ArrayList<>();
 
@@ -94,7 +93,7 @@ public class vendasController implements Initializable {
     @FXML
     private Label fieldTotal;
 
-    public double totalCompra;
+
 
     private static ArrayList<String> words;
 
@@ -264,7 +263,7 @@ public class vendasController implements Initializable {
         else{
 
             exibirDialogoConfirmação("Confirmar a seleção de items");
-            main.showSecondViewVenda();
+            showSecondViewVenda(totalCompra);
         }
 
 

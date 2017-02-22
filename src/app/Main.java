@@ -21,6 +21,7 @@ public class Main extends Application {
 	public static Stage primaryStage;
 	public static BorderPane mainLayout;
 	public static boolean isAdmin;
+    public static double totalCompra;
 
 
 	@Override
@@ -120,7 +121,8 @@ public class Main extends Application {
 
 	}
 
-	public static void showSecondViewVenda() throws IOException {
+	public static void showSecondViewVenda(double tot) throws IOException {
+	    totalCompra=tot;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/secondViewVendas.fxml"));
 		BorderPane concluirVenda = loader.load();
