@@ -61,7 +61,7 @@ public class concluirVendasController extends vendasController {
 
     @FXML
     private void actionVoltar() throws IOException {
-        main.showViewVenda();
+        main.showViewVenda();//
     }
 
     @FXML
