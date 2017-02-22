@@ -46,7 +46,10 @@ public class MainItemsController extends Main {
 
 		alert.showAndWait();
 	}
-
+	@FXML
+	public void goConsultar() throws IOException {
+		showConsultarProdutos();
+	}
 	@FXML
 	void emConstrucao()
 	{

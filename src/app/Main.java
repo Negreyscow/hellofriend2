@@ -77,7 +77,13 @@ public class Main extends Application {
 		mainLayout.setCenter(gerenciar_produtos); //the magic happens
 		
 	}
+    public static void showConsultarProdutos() throws IOException{ // responsavel pelo acesso ao controlador
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/crudConsultarProdutos.fxml"));
+        BorderPane crudConsultarProdutos = loader.load();
+        mainLayout.setCenter(crudConsultarProdutos); //the magic happens
 
+    }
 	//this
 	public static void showAddUserStage() throws IOException {
 
