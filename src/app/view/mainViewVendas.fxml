@@ -68,9 +68,9 @@
                            </VBox.margin>
                         </Label>
                         <ListView fx:id="listView" prefHeight="381.0" prefWidth="282.0" />
-                        <HBox prefHeight="43.0" prefWidth="282.0">
+                        <HBox prefHeight="43.0" prefWidth="313.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="103.0" text="Valor Total:">
+                              <Label prefHeight="30.0" prefWidth="83.0" text="Total:R$">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -78,7 +78,7 @@
                                     <Insets left="100.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="fieldTotal" prefHeight="30.0" prefWidth="68.0" text="00,00">
+                              <Label fx:id="fieldTotal" prefHeight="30.0" prefWidth="113.0" text="00,00">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

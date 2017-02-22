@@ -114,6 +114,7 @@ public class Main extends Application {
 	}
 
 	public static void showViewVenda() throws IOException {
+	    totalCompra=0;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/mainViewVendas.fxml"));
 		BorderPane telaVenda = loader.load();
