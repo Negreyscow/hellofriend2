@@ -168,19 +168,19 @@ public class CrudProdutosControllerNew implements Initializable {
 
 
         if (produtoTable.getSelectionModel().getSelectedItem() == null){
-            exibirDialogoErro("Não há funcionario selecionado!");
+            exibirDialogoErro("Não há produto selecionado!");
         } else {
 
-            if (exibirDialogoConfirmação("Confirmar a exclusão do funcionario selecionado?")==true){
+            if (exibirDialogoConfirmação("Confirmar a exclusão do produto selecionado?")==true){
                 try {
 
                     dao.deletar(produtoTable.getSelectionModel().getSelectedItem().getCdproduto());
-                    exibirDialogoInformacao("Funcionario Deletado com sucuesso!");
+                    exibirDialogoInformacao("Produto Deletado com sucuesso!");
                     goBuscar();
 
 
                 } catch (Exception e){
-                    exibirDialogoErro("Falha ao deletar o funcionario");
+                    exibirDialogoErro("Falha ao deletar o produto");
                     e.printStackTrace();
                 }
             }
@@ -195,12 +195,12 @@ public class CrudProdutosControllerNew implements Initializable {
         produtoSelecionado.setNome(fieldProduto.getText());
         produtoSelecionado.setCategoria(fieldCategoria.getText());
         produtoSelecionado.setQuantidade(new Integer(fieldQtd.getText()));
-//        produtoSelecionado.setPreco(new Double(fieldValor.getText()));
+        produtoSelecionado.setPreco(new Double(fieldValor.getText()));
 
         try {
 
             dao.alterar(produtoSelecionado);
-            exibirDialogoInformacao("Funcionario Atualizado!");
+            exibirDialogoInformacao("Produto Atualizado!");
             goBuscar();
             abas.getSelectionModel().select(tabConsultar);
 
@@ -223,7 +223,7 @@ public class CrudProdutosControllerNew implements Initializable {
             fieldProduto.setText(produtoSelecionado.getNome());
             fieldCategoria.setText(produtoSelecionado.getCategoria());
             fieldQtd.setText(produtoSelecionado.getQuantidade().toString());
-            //fieldValor.setText(new Double( produtoSelecionado.getPreco()));
+            fieldValor.setText(Double.toString(produtoSelecionado.getPreco()));
         }
 
     }
