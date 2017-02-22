@@ -82,10 +82,10 @@ public class concluirVendasController extends Main implements Initializable{
     void concluirVenda() throws IOException{
         Vendas venda=new Vendas();
         vendasController teste = new vendasController();
-        venda.setPreco(new Double(teste.getTotalCompra()));
+        venda.setPreco(teste.getTotalCompra());
         venda.setNomeCliente(FieldCliente.getText());
         venda.setDataVenda(Date.valueOf(DatadaVenda.getValue()));
-        venda.setParcelas(new Integer(BoxParcelas.getValue()));
+        venda.setParcelas(BoxParcelas.getValue());
         try {
 
             dao.cadastrar(venda);

@@ -52,9 +52,8 @@ public class vendasDAO {
 
                 venda.setDataVenda(resultSet.getDate("data_venda"));
                 venda.setPreco(resultSet.getDouble("valor"));
-                venda.setNome(resultSet.getString("nome_cliente"));
                 venda.setParcelas(resultSet.getInt("parcelas"));
-
+                venda.setNome(resultSet.getString("nome_cliente"));
 
 
                 vendas.add(venda);
