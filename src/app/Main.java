@@ -20,7 +20,7 @@ public class Main extends Application {
 	
 	public static Stage primaryStage;
 	public static BorderPane mainLayout;
-
+	public static boolean isAdmin;
 
 
 	@Override
@@ -30,8 +30,8 @@ public class Main extends Application {
 
 
         showLogin();
-		showMainView();
-		showMainItems();
+		//showMainView();
+		//showMainItems();
 	}
 
 	private void showLogin() throws IOException{
@@ -44,7 +44,8 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 
-	public static void showMainView() throws IOException{
+	public static void showMainView(boolean Admin) throws IOException{
+		isAdmin=Admin;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/MainView.fxml")); //faz o loader do documento fxml dentro da main
 		mainLayout = loader.load();

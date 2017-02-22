@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.vendasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.vendasController">
    <center>
       <SplitPane dividerPositions="0.6190476190476191" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
@@ -23,7 +23,7 @@
                <children>
                   <HBox layoutX="18.0" layoutY="14.0" prefHeight="50.0" prefWidth="453.0">
                      <children>
-                        <TextField fx:id="fieldBuscar" prefHeight="32.0" prefWidth="380.0" promptText="Pesquisar Produto...">
+                        <TextField fx:id="fieldBuscar" onAction="#goBuscar" prefHeight="32.0" prefWidth="380.0" promptText="Pesquisar Produto...">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import app.Main;
 //import sun.applet.Main;
@@ -13,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LoginController {
+public class LoginController extends Main {
 
     private Main main;
 
@@ -21,27 +22,44 @@ public class LoginController {
     private Label lblStatus;
 
     @FXML
-    private TextField txtUser;
+    private RadioButton ButonUser;
+    @FXML
+    private RadioButton ButonAdmin;
 
     @FXML
     private PasswordField txtPassword;
 
 
     public void Login(ActionEvent event) throws IOException {
-        if (txtUser.getText().equals("hello") && txtPassword.getText().equals("friend")){
+        if (ButonAdmin.isSelected() && txtPassword.getText().equals("1234")){
+
             lblStatus.setText("Sucesso! :)");
-            main.showMainView();
-            main.showMainItems();
-           //app.Main teste = new app.Main();
-           //teste.showMainView();
-           //teste.showMainItems();
+            isAdmin=true;
+            showMainView(isAdmin);
+            showMainItems();
+
+            //app.Main teste = new app.Main();
+            //teste.showMainView();
+            //teste.showMainItems();
 
 
         }
-        else {
-            lblStatus.setText("I want to read a hello, friend :(");
+        else if(ButonUser.isSelected() && txtPassword.getText().equals("1234")){
+            lblStatus.setText("Sucesso! :)");
+            isAdmin=false;
+            showMainView(isAdmin);
+            showMainItems();
+        }
+        if(!ButonUser.isSelected()&&!ButonAdmin.isSelected())
+        {
+            lblStatus.setText("Nada foi selecionado! Tente novamente");
+        }
+        else
+        {
+            lblStatus.setText("Senha incorreta! Tente novamente");
         }
     }
+
 
 
 
