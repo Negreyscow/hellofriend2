@@ -167,11 +167,28 @@ public class vendasController implements Initializable {
             observableListView = FXCollections.observableArrayList(listListView);
             listView.setItems(observableListView);
         }
+        carregarTableViewCarrinho();
     }
 
     @FXML
     void removerList(){
         String algo = listView.getSelectionModel().getSelectedItem();
+        String aux;
+        int contador = algo.length();
+        for(int i = 0;i<contador;i++){
+            if (algo.substring(i,i+1).equals(":")){
+                int posicao = i+1;
+                aux=algo.substring(posicao,algo.length());
+                double valor=Double.parseDouble(aux);
+
+                totalCompra -=valor;
+                totalCompra = totalCompra*100;
+                totalCompra = Math.round(totalCompra);
+                totalCompra = totalCompra/100;
+                System.out.println(totalCompra);
+                fieldTotal.setText(Double.toString(totalCompra));
+            }}
+
         listListView.remove(algo);
         listView.getItems().remove(algo);
     }
@@ -180,14 +197,14 @@ public class vendasController implements Initializable {
 
         produtoSelecionado = tableVendasItems.getSelectionModel().getSelectedItem();
 
-        columnProdutoCar.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
-        columnQtdCar.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
-        columnValorCar.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
+        //columnProdutoCar.setCellValueFactory(new PropertyValueFactory<Produtos, String>("nome"));
+        //columnQtdCar.setCellValueFactory(new PropertyValueFactory<Produtos, Integer>("quantidade"));
+        //columnValorCar.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
 
         listCarrinho.add(produtoSelecionado);
 
-        observableListCarrinho = FXCollections.observableArrayList(listCarrinho);
-        tableCarrinho.setItems(observableListCarrinho);
+        //observableListCarrinho = FXCollections.observableArrayList(listCarrinho);
+        //tableCarrinho.setItems(observableListCarrinho);
 
         totalCompra += produtoSelecionado.getPreco();
         fieldTotal.setText(Double.toString(totalCompra));

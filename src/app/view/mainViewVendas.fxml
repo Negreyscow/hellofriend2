@@ -52,12 +52,12 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="comboBoxBusca" layoutX="264.0" layoutY="63.0" prefWidth="150.0" promptText="Categoria" visibleRowCount="8" />
-                  <Button layoutX="333.0" layoutY="542.0" mnemonicParsing="false" onAction="#goCarrinho" prefHeight="36.0" prefWidth="136.0" text="Adicionar Carrinho" />
+                  <Button layoutX="333.0" layoutY="543.0" mnemonicParsing="false" onAction="#goCarrinho" prefHeight="36.0" prefWidth="136.0" text="Adicionar Carrinho" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <VBox layoutX="10.0" layoutY="24.0" prefHeight="451.0" prefWidth="282.0">
+                  <VBox layoutX="10.0" layoutY="24.0" prefHeight="575.0" prefWidth="282.0">
                      <children>
                         <Label alignment="TOP_RIGHT" contentDisplay="CENTER" text="Carrinho de Compras">
                            <font>
@@ -67,16 +67,7 @@
                               <Insets left="50.0" />
                            </VBox.margin>
                         </Label>
-                        <TableView fx:id="tableCarrinho" prefHeight="200.0" prefWidth="200.0">
-                          <columns>
-                            <TableColumn fx:id="columnProdutoCar" prefWidth="148.0" text="Produto" />
-                            <TableColumn fx:id="columnQtdCar" prefWidth="72.0" text="Qtd" />
-                              <TableColumn fx:id="columnValorCar" prefWidth="61.0" text="Valor" />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
+                        <ListView fx:id="listView" prefHeight="381.0" prefWidth="282.0" />
                         <HBox prefHeight="43.0" prefWidth="282.0">
                            <children>
                               <Label prefHeight="30.0" prefWidth="103.0" text="Valor Total:">
@@ -105,12 +96,12 @@
                               <Insets top="10.0" />
                            </opaqueInsets>
                            <children>
-                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#removerList" prefHeight="44.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
+                              <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#removerList" prefHeight="36.0" prefWidth="113.0" text="Remover" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
                                     <Insets left="10.0" top="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#goNextView" prefHeight="44.0" prefWidth="113.0" text="Avançar">
+                              <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#goNextView" prefHeight="36.0" prefWidth="113.0" text="Avançar">
                                  <HBox.margin>
                                     <Insets left="5.0" top="10.0" />
                                  </HBox.margin>
@@ -119,7 +110,6 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <ListView fx:id="listView" layoutX="7.0" layoutY="384.0" prefHeight="200.0" prefWidth="285.0" />
                </children>
             </AnchorPane>
         </items>
