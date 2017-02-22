@@ -6,7 +6,10 @@ import app.model.domain.Vendas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Leonardo on 19/02/2017.
@@ -35,6 +38,40 @@ public class vendasDAO {
         statement.execute();
         statement.close();
 
+    }
+    public List<Vendas> consultar(String nomeVenda){
+
+        List<Vendas> vendas = new ArrayList<>();
+
+        String sql = "select * from produtos where nome like '%" + nomeVenda + "%'";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+
+                Vendas venda = new Vendas();
+
+                venda.setDataVenda(resultSet.getDate("data_venda"));
+                venda.setPreco(resultSet.getDouble("valor"));
+                venda.setParcelas(resultSet.getInt("parcelas"));
+                venda.setNome(resultSet.getString("nome_cliente"));
+
+
+                vendas.add(venda);
+
+            }
+
+            resultSet.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+        return vendas;
     }
 
 

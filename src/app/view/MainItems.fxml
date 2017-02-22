@@ -27,7 +27,7 @@
             <Button fx:id="consulta_button" mnemonicParsing="false" onAction="#goConsultar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
             <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
             <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
-            <Button fx:id="visualizar_button" mnemonicParsing="false" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+            <Button fx:id="visualizar_button" mnemonicParsing="false" onAction="#goHistorico" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
             <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="260.0" GridPane.rowIndex="1" />
             <Button fx:id="config_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="trocar_user_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />

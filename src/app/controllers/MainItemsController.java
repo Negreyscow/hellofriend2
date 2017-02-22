@@ -50,7 +50,12 @@ public class MainItemsController extends Main {
 	public void goConsultar() throws IOException {
 		showConsultarProdutos();
 	}
-	@FXML
+    @FXML
+    public void goHistorico() throws IOException {
+        showHistoricoVendas();
+    }
+
+    @FXML
 	void emConstrucao()
 	{
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);

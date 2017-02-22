@@ -84,7 +84,13 @@ public class Main extends Application {
         mainLayout.setCenter(crudConsultarProdutos); //the magic happens
 
     }
+    public static void showHistoricoVendas() throws IOException{ // responsavel pelo acesso ao controlador
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/crudHistoricoProdutos.fxml"));
+        BorderPane crudHistoricoVendas = loader.load();
+        mainLayout.setCenter(crudHistoricoVendas); //the magic happens
 
+    }
 	public static void showAddUserStage() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
