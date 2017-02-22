@@ -54,31 +54,52 @@ public class CadastrarProdutoController implements Initializable {
     @FXML
     void actionCadastrar() {
 
-
+        boolean erro=false;
         Produtos produto = new Produtos();
-
-        produto.setNome(fieldDescricao.getText());
+        if(!fieldDescricao.getText().isEmpty())
+            produto.setNome(fieldDescricao.getText());
         String price =fieldPreco.getText();
-        price=price.replace(',','.');
-        produto.setPreco(new Double(price));
-        produto.setQuantidade(new Integer(fieldEstoque.getText()));
-        produto.setCategoria(fieldProdutoCat.getText());
+        if(!fieldPreco.getText().isEmpty()) {
+            price = price.replace(',', '.');
+            try {
+                produto.setPreco(new Double(price));
+            }
+            catch (Exception e)
+            {
+                exibirDialogoErro("Falha ao Cadastrar Produto! Preço incorreto!");
+                erro=true;
+            }
+
+        }
+        if(!fieldEstoque.getText().isEmpty()) {
+            try {
+                produto.setQuantidade(new Integer(fieldEstoque.getText()));
+            }
+            catch (Exception e)
+            {
+                exibirDialogoErro("Falha ao Cadastrar Produto! Quantidade incorreta!");
+                erro=true;
+            }
+        }
+        if(!fieldProdutoCat.getText().isEmpty())
+            produto.setCategoria(fieldProdutoCat.getText());
 
 
+        if(!erro) {
+            try {
+                dao.cadastrar(produto);
+                exibirDialogoInformacao("Produto Cadastrado com sucesso!");
+                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                stage.close();
+                // limparCadastroNovoFuncionario();
+                // produtosController.goBuscar();
 
-        try {
-            dao.cadastrar(produto);
-            exibirDialogoInformacao("Produto Cadastrado com sucesso!");
-           // limparCadastroNovoFuncionario();
-           // produtosController.goBuscar();
-
-        } catch (Exception e){
-            exibirDialogoErro("Falha ao Cadastrar Produto!");
-            e.printStackTrace();
+            } catch (Exception e) {
+                exibirDialogoErro("Falha ao Cadastrar Produto! Algum campo nao foi preenchido!");
+                e.printStackTrace();
+            }
         }
 
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
 
     }
 
