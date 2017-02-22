@@ -202,7 +202,7 @@ public class vendasController implements Initializable {
         //columnValorCar.setCellValueFactory(new PropertyValueFactory<Produtos, BigDecimal>("preco"));
 
         listCarrinho.add(produtoSelecionado);
-
+        //comentario
         //observableListCarrinho = FXCollections.observableArrayList(listCarrinho);
         //tableCarrinho.setItems(observableListCarrinho);
 
