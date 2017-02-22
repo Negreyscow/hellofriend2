@@ -47,6 +47,8 @@ public class CrudFuncionarioControllerNew implements Initializable {
     private TextField fieldFuncionarioConsulta;
 
 
+
+
     @FXML
     private TableView<Funcionario> funcionarios;
 
@@ -89,7 +91,7 @@ public class CrudFuncionarioControllerNew implements Initializable {
 
     private funcionarioDAO dao;
 
-    private Funcionario funcioarioSelecionado;
+    private Funcionario funcioarioSelecionado = new Funcionario();
 
     public Funcionario ultimoHomem;
 
@@ -137,10 +139,12 @@ public class CrudFuncionarioControllerNew implements Initializable {
         }
     }
 
+
     @FXML
     void exibirAbaAtualizada() throws IOException {
 
         funcioarioSelecionado = funcionarios.getSelectionModel().getSelectedItem();
+        retornaFuncionario(funcionarios.getSelectionModel().getSelectedItem());
 
 
 
@@ -152,15 +156,19 @@ public class CrudFuncionarioControllerNew implements Initializable {
             FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
             FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
             FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());*/
-            retornaFuncionario(funcioarioSelecionado);
+            //retornaFuncionario(funcioarioSelecionado);
             goAlterarDados();
         }
-
     }
 
     public void retornaFuncionario(Funcionario pessoa) {
         ultimoHomem = pessoa;
     }
+
+    public Funcionario getUltimoHomem(){
+        return ultimoHomem;
+    }
+
 
 
     /*

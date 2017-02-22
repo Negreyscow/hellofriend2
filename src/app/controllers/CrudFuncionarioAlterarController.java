@@ -24,14 +24,13 @@ import java.util.ResourceBundle;
  * Created by Leonardo on 20/02/2017.
  */
 
-public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerNew {
+public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerNew  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         dao = new funcionarioDAO();
         setarLabels();
-
 
     }
 
@@ -40,6 +39,8 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
     private funcionarioDAO dao;
 
     CrudFuncionarioControllerNew theLast;
+
+    Funcionario lastMan = new Funcionario();
 
     @FXML
     private TextField FuncionarioNome;
@@ -60,8 +61,9 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
 
 
     public void setarLabels(){
-
-        FuncionarioNome.setText("Nome");
+          lastMan = getUltimoHomem();
+          if (lastMan == null) System.out.println("nooooooooo!");
+          FuncionarioNome.setText("nome");
        // FuncionarioCargo.setText(ultimoHomem.getCargo());
        // FuncionarioSalario.setText(ultimoHomem.getSalario().toString());
         //FuncionarioNascimento.setValue(ultimoHomem.getDataNascimento().toLocalDate());
@@ -93,9 +95,7 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
 
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
-
     }
-
 
     private void exibirDialogoInformacao(String informacao) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -95,34 +95,6 @@ public class vendasController implements Initializable {
     private double totalCompra = 0;
 
 
-    class myObject{
-        String nome;
-        Integer qtd;
-        BigDecimal maney;
-
-       // http://java-buddy.blogspot.com.br/2013/05/implement-javafx-listview-for-custom.html
-
-        myObject(String n, Integer q, BigDecimal m){
-            nome = n;
-            qtd = q;
-            maney = m;
-        }
-
-        String getNomee(){
-            return nome;
-        }
-
-            Integer getQtd(){
-            return qtd;
-            }
-
-            BigDecimal getManey(){
-                return maney;
-            }
-
-    }
-
-    List<myObject> mylist;
 
 
 
