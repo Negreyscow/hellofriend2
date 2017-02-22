@@ -111,6 +111,9 @@ public class CrudFuncionarioController implements Initializable {
         private TextField FuncionarioSalario;
 
         @FXML
+        private TextField novoSenhaFuncionario;
+
+        @FXML
         private Button buttonSalvar1;
 
         private funcionarioDAO dao;
@@ -128,6 +131,7 @@ public class CrudFuncionarioController implements Initializable {
             funcionario.setSalario(new BigDecimal(novoFuncionarioSalario.getText()));
             funcionario.setCargo(novoFuncionarioCargo.getText());
             funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
+            funcionario.setPassword(novoSenhaFuncionario.getText());
 
 
             try {

@@ -13,6 +13,7 @@ public class Funcionario {
     private Date dataNascimento;
     private String cargo;
     private BigDecimal salario;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -52,5 +53,13 @@ public class Funcionario {
 
     public void setSalario(BigDecimal salario) {
         this.salario = salario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

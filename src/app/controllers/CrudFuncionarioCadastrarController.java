@@ -47,6 +47,9 @@ public class CrudFuncionarioCadastrarController implements Initializable {
     private TextField novoFuncionarioSalario;
 
     @FXML
+    private TextField novoFuncionarioSenha;
+
+    @FXML
     private Button buttonLimpar;
 
     @FXML
@@ -63,6 +66,7 @@ public class CrudFuncionarioCadastrarController implements Initializable {
         funcionario.setSalario(new BigDecimal(novoFuncionarioSalario.getText()));
         funcionario.setCargo(novoFuncionarioCargo.getText());
         funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
+        funcionario.setPassword(novoFuncionarioSenha.getText());
 
 
         try {

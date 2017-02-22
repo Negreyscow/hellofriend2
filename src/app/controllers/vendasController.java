@@ -25,6 +25,7 @@ import static app.Main.mainLayout;
 /**
  * Created by Leonardo on 19/02/2017.
  */
+
 public class vendasController implements Initializable {
 
     private Main main;

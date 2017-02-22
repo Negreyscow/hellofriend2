@@ -11,8 +11,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
@@ -22,13 +24,17 @@ import java.util.ResourceBundle;
  * Created by Leonardo on 20/02/2017.
  */
 
-public class CrudFuncionarioAlterarController implements Initializable {
+public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerNew {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         dao = new funcionarioDAO();
+        setarLabels();
+
 
     }
+
 
     @FXML
     private funcionarioDAO dao;
@@ -48,12 +54,18 @@ public class CrudFuncionarioAlterarController implements Initializable {
     private DatePicker FuncionarioNascimento;
 
     @FXML
-    private Button buttonSalvar1;
-
-    @FXML
     private Button cancelButton;
 
     private Funcionario funcioarioSelecionado;
+
+
+    public void setarLabels(){
+
+        FuncionarioNome.setText("Nome");
+       // FuncionarioCargo.setText(ultimoHomem.getCargo());
+       // FuncionarioSalario.setText(ultimoHomem.getSalario().toString());
+        //FuncionarioNascimento.setValue(ultimoHomem.getDataNascimento().toLocalDate());
+    }
 
     @FXML
     void AtualizarFuncionario() {
@@ -104,22 +116,7 @@ public class CrudFuncionarioAlterarController implements Initializable {
     }
 
 
-    private void exibirAtualizado() {
 
-        //funcioarioSelecionado = theLast.funcionarios.getSelectionModel().getSelectedItem();
-        funcioarioSelecionado = theLast.exibirAbaAtualizada();
-/*
-        if (funcioarioSelecionado == null){
-            exibirDialogoErro("Não há funcionario selecionado!");
-        } else { */
-
-            FuncionarioNome.setText(funcioarioSelecionado.getNome());
-            FuncionarioCargo.setText(funcioarioSelecionado.getCargo());
-            FuncionarioSalario.setText(funcioarioSelecionado.getSalario().toString());
-            FuncionarioNascimento.setValue(funcioarioSelecionado.getDataNascimento().toLocalDate());
-     //   }
-
-    }
 
 
 }
