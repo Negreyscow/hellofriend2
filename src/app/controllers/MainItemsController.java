@@ -11,7 +11,6 @@ public class MainItemsController extends Main {
 
 
 
-	private Main main;
 	//every FXML have to be a controller class
 	private CrudProdutosController produtos;
 
@@ -37,7 +36,7 @@ public class MainItemsController extends Main {
 
 	@FXML
 	private void goViewVenda() throws IOException {
-		main.showViewVenda();
+		showViewVenda();
 	}
 	public void exibirDialogoErro(String erro){
 		Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -57,6 +56,7 @@ public class MainItemsController extends Main {
 		alert.setContentText("Esta funcionalidade está em fase de implementação!");
 		alert.showAndWait();
 	}
+
 
 }
 

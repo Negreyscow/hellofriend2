@@ -34,7 +34,7 @@ public class Main extends Application {
 		//showMainItems();
 	}
 
-	private void showLogin() throws IOException{
+	public void showLogin() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("view/login.fxml"));
 		mainLayout = loader.load();
