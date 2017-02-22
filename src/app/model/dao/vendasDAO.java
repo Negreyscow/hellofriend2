@@ -4,10 +4,7 @@ import app.model.database.ConnectionFactory;
 import app.model.domain.Produtos;
 import app.model.domain.Vendas;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +26,7 @@ public class vendasDAO {
 
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        statement.setString(1, vendas.getNome());
+        statement.setDate(1, (Date) vendas.getDataVenda());
         statement.setDouble(2, vendas.getPreco());
         statement.setString(3, vendas.getNomeCliente());
         statement.setInt(4, vendas.getParcelas());
@@ -55,8 +52,9 @@ public class vendasDAO {
 
                 venda.setDataVenda(resultSet.getDate("data_venda"));
                 venda.setPreco(resultSet.getDouble("valor"));
-                venda.setParcelas(resultSet.getInt("parcelas"));
                 venda.setNome(resultSet.getString("nome_cliente"));
+                venda.setParcelas(resultSet.getInt("parcelas"));
+
 
 
                 vendas.add(venda);

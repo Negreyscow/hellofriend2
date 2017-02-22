@@ -94,9 +94,9 @@
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Nome Cliente:" />
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Data da Venda:" GridPane.rowIndex="1" />
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="N° Parcelas:" GridPane.rowIndex="2" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField prefHeight="14.0" prefWidth="210.0" GridPane.columnIndex="1" />
-                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="BoxParcelas" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="FieldCliente" prefHeight="14.0" prefWidth="210.0" GridPane.columnIndex="1" />
+                              <DatePicker fx:id="DatadaVenda" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <Button mnemonicParsing="false" onAction="#concluirVenda" prefHeight="47.0" prefWidth="105.0" text="Concluir">
