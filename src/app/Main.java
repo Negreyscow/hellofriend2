@@ -70,9 +70,10 @@ public class Main extends Application {
 
 	public static void showGerenciarProdutosScene() throws IOException{ // responsavel pelo acesso ao controlador
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/gerenciar_produtos.fxml"));
+		loader.setLocation(Main.class.getResource("view/crudProdutosNew.fxml"));
 		BorderPane gerenciar_produtos = loader.load();
 		mainLayout.setCenter(gerenciar_produtos); //the magic happens
+		
 	}
 
 	//this

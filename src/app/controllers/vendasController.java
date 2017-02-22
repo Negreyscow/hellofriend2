@@ -257,8 +257,14 @@ public class vendasController implements Initializable {
         if (listView.getItems().isEmpty()){
            exibirDialogoErro("Carrinho vazio!");
         }
-        else
+        else{
+
+            exibirDialogoConfirmação("Confirmar a seleção de items");
             main.showSecondViewVenda();
+        }
+
+
+
 
     }
 
