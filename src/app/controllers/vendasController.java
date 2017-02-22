@@ -186,7 +186,6 @@ public class vendasController implements Initializable {
                 totalCompra = totalCompra*100;
                 totalCompra = Math.round(totalCompra);
                 totalCompra = totalCompra/100;
-                System.out.println(totalCompra);
                 fieldTotal.setText(Double.toString(totalCompra));
             }}
 
