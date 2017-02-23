@@ -2,46 +2,47 @@
 .root {
 	-fx-spacing: 30;
 	/*-fx-background-color: #f00;*/
-	-fx-background-image: url("../resources/bg.jpg");
+	-fx-background-image: url("../resources/bg2.jpg");
 }
 
 #venda_button {
-	-fx-background-image: url("../resources/venda.jpg");
+	-fx-background-color: red;
 }
 
 #consulta_button {
-	-fx-background-image: url("../resources/consultar_estoque.jpg");
+	-fx-background-color: yellow;
 }
 
 #gerenciar_prod_button {
-	-fx-background-image: url("../resources/gerenciar_produtos.jpg");
+	-fx-background-color: #c4941c;
 }
 
 #visualizar_button {
-	-fx-background-image: url("../resources/historico.jpg");
+	-fx-background-color: hotpink;
 }
 
 #gerenciar_user_button {
-	-fx-background-image: url("../resources/gerenciar_users.jpg");
+	-fx-background-color: purple;
 }
 
 #trocar_user_button {
-	-fx-background-image: url("../resources/trocar_user.jpg");
+	-fx-background-color: orangered;
 }
 
 #config_button {
-	-fx-background-image: url("../resources/config.jpg");
+	-fx-background-color: lime;
 }
 
 #minhas_vendas_button {
-	-fx-background-image: url("../resources/minhas_vendas.jpg");
+	-fx-background-color: blue;
 }
 
 #home_button {
 	-fx-background-image: url("../resources/home_ico.png");
+	-fx-background-color: black;
 }
 
 #loginBackground {
-	-fx-background-image: url("../resources/bg.jpg");
+	-fx-background-image: url("../resources/bg2.jpg");
 	-fx-background-repeat: repeat-y;
 }

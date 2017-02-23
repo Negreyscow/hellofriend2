@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
    <center>
-      <GridPane alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="800.0" scaleShape="false" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="260.0" prefWidth="260.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="140.0" prefWidth="414.0" />
@@ -23,14 +23,14 @@
             <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
          </BorderPane.margin>
          <children>
-            <Button fx:id="venda_button" mnemonicParsing="false" onAction="#goViewVenda" prefHeight="280.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
-            <Button fx:id="consulta_button" mnemonicParsing="false" onAction="#goConsultar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-            <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
-            <Button fx:id="visualizar_button" mnemonicParsing="false" onAction="#goHistorico" prefHeight="140.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-            <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="260.0" GridPane.rowIndex="1" />
-            <Button fx:id="config_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="trocar_user_button" mnemonicParsing="false" prefHeight="120.0" prefWidth="170.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="venda_button" mnemonicParsing="false" onAction="#goViewVenda" prefHeight="337.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
+            <Button fx:id="consulta_button" mnemonicParsing="false" onAction="#goConsultar" prefHeight="161.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="162.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="161.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
+            <Button fx:id="visualizar_button" mnemonicParsing="false" onAction="#goHistorico" prefHeight="162.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+            <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="168.0" prefWidth="260.0" GridPane.rowIndex="1" />
+            <Button fx:id="config_button" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="trocar_user_button" mnemonicParsing="false" prefHeight="165.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>
