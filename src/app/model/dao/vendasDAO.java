@@ -52,7 +52,7 @@ public class vendasDAO {
             while(resultSet.next()){
 
                 Vendas venda = new Vendas();
-
+//
                 venda.setId(resultSet.getInt("id"));
                 venda.setPreco(resultSet.getDouble("valor"));
                 venda.setDataVenda(resultSet.getDate("data_venda"));
