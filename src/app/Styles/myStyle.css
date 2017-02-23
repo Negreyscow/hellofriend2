@@ -88,5 +88,5 @@
 
 #loginBackground {
 	-fx-background-image: url("../resources/bg2.jpg");
-	-fx-background-repeat: repeat-y;
+	-fx-background-color: black;
 }

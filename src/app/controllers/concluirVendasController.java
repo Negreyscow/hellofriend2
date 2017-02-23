@@ -46,8 +46,6 @@ public class concluirVendasController extends Main implements Initializable{
 
     private vendasDAO dao;
 
-    //private Main main;
-
     @FXML
     private ComboBox<Integer> BoxParcelas;
 
@@ -79,6 +77,12 @@ public class concluirVendasController extends Main implements Initializable{
     }
 
     @FXML
+    void concluirVenda2() throws IOException {
+        exibirDialogoInformacao("Venda finalizada com sucesso!");
+        showMainItems();
+    }
+
+    @FXML
     void concluirVenda() throws IOException{
         Vendas venda=new Vendas();
         vendasController teste = new vendasController();
@@ -86,16 +90,26 @@ public class concluirVendasController extends Main implements Initializable{
         venda.setNomeCliente(FieldCliente.getText());
         venda.setDataVenda(Date.valueOf(DatadaVenda.getValue()));
         venda.setParcelas(BoxParcelas.getValue());
+
+        if (venda.getNome() == null)
+            exibirDialogoInformacao("Coloque um nome válido!");
+        else if (venda.getDataVenda() == null)
+            exibirDialogoInformacao("Use uma data válida!");
+        else if (venda.getParcelas() == null)
+            exibirDialogoInformacao("Você precisar de parcelas para este tipo de pagamento!");
+
+
+
+
         try {
 
             dao.cadastrar(venda);
             exibirDialogoInformacao("Venda finalizada com sucesso!");
+            showMainItems();
             //closeStage();
 
-
-
         } catch (Exception e) {
-            exibirDialogoErro("Venda nao finalizada");
+            exibirDialogoErro("Venda não finalizada");
             e.printStackTrace();
         }
 
@@ -142,6 +156,7 @@ public class concluirVendasController extends Main implements Initializable{
         alert.setContentText(erro);
 
         alert.showAndWait();
+
     }
 
     private boolean exibirDialogoConfirmação(String confirmacao) {

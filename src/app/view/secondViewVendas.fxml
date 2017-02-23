@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.concluirVendasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.concluirVendasController">
    <center>
       <Pane prefHeight="494.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,17 +24,17 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="347.0" text="Finalizar Venda - Total: R$">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="347.0" text="Finalizar Venda - Total: R$" textFill="WHITE">
                            <font>
-                              <Font size="29.0" />
+                              <Font name="Futura Bk BT Book" size="29.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="20.0" top="20.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="FieldTotal" contentDisplay="CENTER" prefHeight="43.0" prefWidth="135.0" text="00,00">
+                        <Label fx:id="FieldTotal" contentDisplay="CENTER" prefHeight="43.0" prefWidth="175.0" text="00,00" textFill="WHITE">
                            <font>
-                              <Font size="29.0" />
+                              <Font name="Futura Md BT Bold" size="29.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="20.0" />
@@ -42,34 +43,19 @@
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets left="150.0" />
+               </padding>
             </VBox>
             <HBox prefHeight="600.0" prefWidth="800.0">
                <children>
-                  <VBox prefHeight="600.0" prefWidth="400.0">
-                     <children>
-                        <Label prefHeight="23.0" prefWidth="155.0" text="Concluir Venda à Vista">
-                           <VBox.margin>
-                              <Insets left="120.0" top="120.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Button mnemonicParsing="false" onAction="#concluirVenda" prefHeight="47.0" prefWidth="105.0" text="Concluir">
-                           <VBox.margin>
-                              <Insets left="150.0" top="30.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#actionVoltar" prefHeight="33.0" prefWidth="154.0" text="Reiniciar Venda">
-                           <VBox.margin>
-                              <Insets left="50.0" top="250.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="473.0" prefWidth="22.0">
+                     <HBox.margin>
+                        <Insets bottom="80.0" top="80.0" />
+                     </HBox.margin></Separator>
                   <VBox prefHeight="600.0" prefWidth="421.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="155.0" text="Concluir Venda à Prazo">
+                        <Label prefHeight="23.0" prefWidth="155.0" text="Concluir à Venda " textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -91,9 +77,18 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Nome Cliente:" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Data da Venda:" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="N° Parcelas:" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Nome Cliente:" textFill="WHITE">
+                                 <font>
+                                    <Font name="Futura Md BT Bold" size="12.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="Data da Venda:" textFill="WHITE" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Futura Md BT Bold" size="12.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="119.0" text="N° Parcelas:" textFill="WHITE" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Futura Md BT Bold" size="12.0" />
+                                 </font></Label>
                               <ComboBox fx:id="BoxParcelas" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="FieldCliente" prefHeight="14.0" prefWidth="210.0" GridPane.columnIndex="1" />
                               <DatePicker fx:id="DatadaVenda" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -105,6 +100,9 @@
                            </VBox.margin>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
