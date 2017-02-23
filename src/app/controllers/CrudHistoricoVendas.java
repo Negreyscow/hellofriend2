@@ -64,7 +64,7 @@ public class CrudHistoricoVendas implements Initializable {
         parcelasColumn.setCellValueFactory(new PropertyValueFactory<>("parcelas"));
         ColunaNome.setCellValueFactory(new PropertyValueFactory<>("nome_Cliente"));
 
-        goBuscar();
+        goBuscar();//
 
     }
 
