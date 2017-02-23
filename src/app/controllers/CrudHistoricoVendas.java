@@ -89,7 +89,7 @@ public class CrudHistoricoVendas implements Initializable {
         List<String> result = new ArrayList<>();
 
         for(int i=0;i<resultado.size();i++) {
-            result.add("Data da venda: " + resultado.get(i).getDataVenda() + "      Valor: " + resultado.get(i).getPreco()+ "       Cliente: " + resultado.get(i).getNomeCliente()+ "       Parcelado em " + resultado.get(i).getParcelas() + "X");
+            result.add("Data da venda: " + resultado.get(i).getDataVenda() + "          Valor: " + resultado.get(i).getPreco()+ "           Cliente: " + resultado.get(i).getNomeCliente()+ "           Parcelado em " + resultado.get(i).getParcelas() + "X");
         }
 
         ObservableList<String> obs = FXCollections.observableList(result);

@@ -51,7 +51,10 @@ public class MainItemsController extends Main {
 	}
     @FXML
     public void goHistorico() throws IOException {
+		if(isAdmin)
         showHistoricoVendas();
+		else
+			exibirDialogoErro("Voce nao tem permissao de acesso a este item");
     }
     @FXML
 	public void goLogout() throws IOException {
