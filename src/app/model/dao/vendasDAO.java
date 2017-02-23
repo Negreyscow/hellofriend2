@@ -41,7 +41,7 @@ public class vendasDAO {
 
     public List<Vendas> consultar(String nomeCliente){
 
-        List<Vendas> vendas = new ArrayList<>();
+        List<Vendas> vendaas = new ArrayList<>();
 
         String sql = "select * from vendas where nome_cliente like '%" + nomeCliente + "%'";
 
@@ -53,13 +53,13 @@ public class vendasDAO {
 
                 Vendas venda = new Vendas();
 //
-                venda.setId(resultSet.getInt("id"));
+                venda.setId(resultSet.getInt("idvenda"));
                 venda.setPreco(resultSet.getDouble("valor"));
                 venda.setDataVenda(resultSet.getDate("data_venda"));
                 venda.setParcelas(resultSet.getInt("parcelas"));
-                venda.setNomeCliente(resultSet.getString("nome_Cliente"));
+                venda.setNomeCliente(resultSet.getString("nome_cliente"));
 
-                vendas.add(venda);
+                vendaas.add(venda);
 
             }
 
@@ -71,7 +71,7 @@ public class vendasDAO {
             throw new RuntimeException(e);
         }
 
-        return vendas;
+        return vendaas;
     }
 
 

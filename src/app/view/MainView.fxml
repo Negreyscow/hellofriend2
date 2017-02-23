@@ -22,7 +22,7 @@
                   <Rectangle2D width="300.0" />
                </viewport>
             </ImageView>
-            <Pane prefHeight="41.0" prefWidth="613.0" />
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="613.0" />
           <Button fx:id="logout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="62.0" text="Logout" textAlignment="CENTER" textFill="WHITE">
                <opaqueInsets>
                   <Insets />

@@ -35,7 +35,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <TableView fx:id="tableVendasItems" layoutX="18.0" layoutY="97.0" prefHeight="440.0" prefWidth="451.0">
+                  <TableView fx:id="tableVendasItems" layoutX="18.0" layoutY="97.0" prefHeight="415.0" prefWidth="451.0">
                     <columns>
                       <TableColumn fx:id="idColumn" prefWidth="90.0" text="Cod. Produto" />
                         <TableColumn fx:id="produtoColumn" prefWidth="195.0" text="Produto" />
@@ -52,7 +52,7 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="comboBoxBusca" layoutX="264.0" layoutY="63.0" prefWidth="150.0" promptText="Categoria" visibleRowCount="8" />
-                  <Button layoutX="333.0" layoutY="543.0" mnemonicParsing="false" onAction="#goCarrinho" prefHeight="36.0" prefWidth="136.0" text="Adicionar Carrinho" />
+                  <Button layoutX="333.0" layoutY="520.0" mnemonicParsing="false" onAction="#goCarrinho" prefHeight="36.0" prefWidth="136.0" text="Adicionar Carrinho" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

@@ -11,8 +11,8 @@ import java.util.Date;
 public class Vendas {
 
     private String nomeProduto;
-    private Double preco;
-    private Integer quantidade;
+    private Double preco; //not necessary
+    private Integer quantidade;//this is nothing
     private String nomeCliente;
     private Date dataVenda;
     private Integer parcelas;

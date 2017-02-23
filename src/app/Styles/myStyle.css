@@ -85,6 +85,10 @@
 	-fx-background-image: url("../resources/home_ico.png");
 	-fx-background-color: #333333FF;
 }
+#loginButton {
+	-fx-background-color: snow;
+
+}
 
 #loginBackground {
 	-fx-background-image: url("../resources/bg2.jpg");
