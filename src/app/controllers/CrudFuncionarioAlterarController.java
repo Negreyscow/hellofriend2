@@ -1,20 +1,15 @@
 package app.controllers;
 
 import app.model.dao.funcionarioDAO;
-import app.controllers.CrudFuncionarioControllerNew;
-import app.model.dao.produtosDAO;
 import app.model.domain.Funcionario;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
@@ -24,7 +19,7 @@ import java.util.ResourceBundle;
  * Created by Leonardo on 20/02/2017.
  */
 
-public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerNew  {
+public class CrudFuncionarioAlterarController implements Initializable{ //extends CrudFuncionarioControllerNew  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,7 +34,7 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
     @FXML
     private funcionarioDAO dao;
 
-    CrudFuncionarioControllerNew theLast;
+    //CrudFuncionarioControllerNew theLast;
 
     Funcionario lastMan = new Funcionario();
 
@@ -62,7 +57,7 @@ public class CrudFuncionarioAlterarController extends CrudFuncionarioControllerN
 
 
     public void setarLabels(){
-          lastMan = getUltimoHomem();
+        //lastMan = getUltimoHomem();
           if (lastMan == null) System.out.println("nooooooooo!");
           FuncionarioNome.setText("nome");
        // FuncionarioCargo.setText(ultimoHomem.getCargo());

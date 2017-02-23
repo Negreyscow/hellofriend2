@@ -44,7 +44,7 @@ public class CadastrarProdutoController implements Initializable {
 
     private Produtos produtoSelecionado;
 
-    private CrudProdutosController control;
+    //private CrudProdutosController control;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import app.Main;
 import javafx.fxml.FXML;
-import app.controllers.CrudProdutosController;
 import javafx.scene.control.Alert;
 
 public class MainItemsController extends Main {
@@ -12,7 +11,7 @@ public class MainItemsController extends Main {
 
 
 	//every FXML have to be a controller class
-	private CrudProdutosController produtos;
+	//private CrudProdutosController produtos;
 
 	@FXML
 	private void goGerenciar() throws IOException{
