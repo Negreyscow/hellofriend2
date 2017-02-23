@@ -56,33 +56,41 @@ public class CadastrarProdutoController implements Initializable {
 
         boolean erro=false;
         Produtos produto = new Produtos();
-        if(!fieldDescricao.getText().isEmpty())
+        if(!fieldDescricao.getText().isEmpty()) {
             produto.setNome(fieldDescricao.getText());
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar Produto! Descrição não preenchida!");
+            erro=true;
+        }
         String price =fieldPreco.getText();
         if(!fieldPreco.getText().isEmpty()) {
             price = price.replace(',', '.');
-            try {
                 produto.setPreco(new Double(price));
-            }
-            catch (Exception e)
-            {
-                exibirDialogoErro("Falha ao Cadastrar Produto! Preço incorreto!");
-                erro=true;
-            }
 
         }
-        if(!fieldEstoque.getText().isEmpty()) {
-            try {
-                produto.setQuantidade(new Integer(fieldEstoque.getText()));
-            }
-            catch (Exception e)
-            {
-                exibirDialogoErro("Falha ao Cadastrar Produto! Quantidade incorreta!");
-                erro=true;
-            }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar Produto! Preço incorreto!");
+            erro=true;
         }
-        if(!fieldProdutoCat.getText().isEmpty())
+        if(!fieldEstoque.getText().isEmpty()) {
+                produto.setQuantidade(new Integer(fieldEstoque.getText()));
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar Produto! Quantidade incorreta!");
+            erro=true;
+        }
+        if(!fieldProdutoCat.getText().isEmpty()) {
             produto.setCategoria(fieldProdutoCat.getText());
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar Produto! Categoria não preenchida!");
+            erro=true;
+        }
 
 
         if(!erro) {
@@ -95,7 +103,7 @@ public class CadastrarProdutoController implements Initializable {
                 // produtosController.goBuscar();
 
             } catch (Exception e) {
-                exibirDialogoErro("Falha ao Cadastrar Produto! Algum campo nao foi preenchido!");
+                exibirDialogoErro("Falha ao Cadastrar Produto!");
                 e.printStackTrace();
             }
         }
