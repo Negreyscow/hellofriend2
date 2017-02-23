@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
    <center>
       <GridPane alignment="CENTER" cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="800.0" scaleShape="false" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -51,7 +51,7 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="config_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" text="Configurações" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="config_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#emConstrucao" prefHeight="169.0" prefWidth="270.0" text="Configurações" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font></Button>
