@@ -7,34 +7,78 @@
 
 #venda_button {
 	-fx-background-color: red;
+	-fx-background-image: url("../resources/efetuarvenda.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+
+
 }
 
 #consulta_button {
-	-fx-background-color: yellow;
+	-fx-background-color: purple;
+	-fx-background-image: url("../resources/consultarestoque.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+
+}
+
+#logout{
+
+}
+
+#toolbar{
+	-fx-background-color: black;
 }
 
 #gerenciar_prod_button {
-	-fx-background-color: #c4941c;
+	-fx-background-color: #ff5614;
+	-fx-background-image: url("../resources/gerenciamentofuncionarios.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
 }
-//
+
 #visualizar_button {
-	-fx-background-color: hotpink;
+	-fx-background-color: #E5DA00;
+	-fx-background-image: url("../resources/historico.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
 }
 
 #gerenciar_user_button {
-	-fx-background-color: purple;
+	-fx-background-color: #EFB7F0;
+	-fx-background-image: url("../resources/gerenciarfuncionarios.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
 }
 
 #trocar_user_button {
-	-fx-background-color: orangered;
+	-fx-background-color: #96D030;
+	-fx-background-image: url("../resources/trocaruser.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
 }
 
 #config_button {
-	-fx-background-color: lime;
+	-fx-background-color: #523821;
+	-fx-background-image: url("../resources/configuracoes.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+
 }
 
 #minhas_vendas_button {
-	-fx-background-color: blue;
+	-fx-background-color: #088DA5;
+	-fx-background-image: url("../resources/minhasvendas.png");
+	-fx-content-display: center ;
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
 }
 
 #home_button {

@@ -13,6 +13,8 @@ public class MainViewController extends Main{
 	private void goHome() throws IOException{
 		main.showMainItems();
 	}
+
+
 	@FXML
 	void logout() throws IOException {
 		showLogin();

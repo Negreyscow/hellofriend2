@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="800.0" prefWidth="1000.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MainItemsController">
    <center>
@@ -23,14 +24,41 @@
             <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
          </BorderPane.margin>
          <children>
-            <Button fx:id="venda_button" mnemonicParsing="false" onAction="#goViewVenda" prefHeight="337.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg;" />
-            <Button fx:id="consulta_button" mnemonicParsing="false" onAction="#goConsultar" prefHeight="161.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-            <Button fx:id="gerenciar_prod_button" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="162.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-            <Button fx:id="gerenciar_user_button" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="161.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.valignment="TOP" />
-            <Button fx:id="visualizar_button" mnemonicParsing="false" onAction="#goHistorico" prefHeight="162.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
-            <Button fx:id="minhas_vendas_button" mnemonicParsing="false" prefHeight="168.0" prefWidth="260.0" GridPane.rowIndex="1" />
-            <Button fx:id="config_button" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="trocar_user_button" mnemonicParsing="false" prefHeight="165.0" prefWidth="270.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="venda_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goViewVenda" prefHeight="337.0" prefWidth="260.0" style="-fx-background-image: src\images\venda.jpg; -fx-background-position: center;" text="Efetuar Venda" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Futura Bk BT Book" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></Button>
+            <Button fx:id="consulta_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goConsultar" prefHeight="161.0" prefWidth="271.0" text="Consultar Estoque" textFill="WHITE" GridPane.columnIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Futura Bk BT Book" size="15.0" />
+               </font></Button>
+            <Button fx:id="gerenciar_prod_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goGerenciarProdutos" prefHeight="162.0" prefWidth="270.0" text="Gerenciar Produtos" textFill="WHITE" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Futura Bk BT Book" size="15.0" />
+               </font></Button>
+            <Button fx:id="gerenciar_user_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goGerenciar" prefHeight="161.0" prefWidth="270.0" text="Gerenciar Usuários" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="visualizar_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goHistorico" prefHeight="162.0" prefWidth="270.0" text="Histórico" textFill="WHITE" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="minhas_vendas_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="168.0" prefWidth="260.0" text="Trocar Usuário" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="config_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" text="Minhas Vendas" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="trocar_user_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="165.0" prefWidth="270.0" text="Configurações" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
          </children>
       </GridPane>
    </center>
