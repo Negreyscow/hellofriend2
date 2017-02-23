@@ -34,12 +34,6 @@ public class CrudHistoricoVendas implements Initializable {
     //private Produtos produtoSelecionado;
 
     @FXML
-    private TextField fieldBuscar;
-
-    @FXML
-    private Button buttonBuscar;
-
-    @FXML
     private TableView<Vendas> produtoTable;
     @FXML
     private TableColumn<Vendas, Integer> parcelasColumn;
@@ -82,13 +76,12 @@ public class CrudHistoricoVendas implements Initializable {
 
         try {
             List<Vendas> resultado = dao.consultar("");
-
+            System.out.println(resultado.get(0).getNomeCliente());
             if(resultado.isEmpty()){
                 exibirDialogoInformacao("Nenhum Resultado foi encontrado");
             } else {
 
                 produtoTable.setItems(FXCollections.observableList(resultado));
-
             }
         } catch (Exception e){
             exibirDialogoErro("Falha ao realizar a consulta");

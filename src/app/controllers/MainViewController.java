@@ -7,11 +7,11 @@ import javafx.fxml.FXML;
 
 public class MainViewController extends Main{
 
-	private Main main;
+	//private Main main;
 
 	@FXML
 	private void goHome() throws IOException{
-		main.showMainItems();
+		showMainItems();
 	}
 	@FXML
 	void logout() throws IOException {

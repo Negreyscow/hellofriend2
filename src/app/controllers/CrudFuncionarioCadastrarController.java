@@ -59,30 +59,60 @@ public class CrudFuncionarioCadastrarController implements Initializable {
 
     @FXML
     void salvarFuncionario(){
-
+        boolean erro=false;
         Funcionario funcionario = new Funcionario();
+        System.out.println(novoFuncionarioNome.getText());
+        if(!novoFuncionarioNome.getText().isEmpty()) {
+                funcionario.setNome(novoFuncionarioNome.getText());
 
-        funcionario.setNome(novoFuncionarioNome.getText());
-        funcionario.setSalario(new BigDecimal(novoFuncionarioSalario.getText()));
-        funcionario.setCargo(novoFuncionarioCargo.getText());
-        funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
-        //funcionario.setPassword(novoFuncionarioSenha.getText());
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar funcionário! Nome não preenchido!");
+            erro = true;
+        }
+        String price =novoFuncionarioSalario.getText();
+        if(!novoFuncionarioSalario.getText().isEmpty()) {
+            price = price.replace(',', '.');
+                funcionario.setSalario(new BigDecimal(price));
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar funcionário! Salario não preenchido!");
+            erro = true;
+        }
+        if(!novoFuncionarioCargo.getText().isEmpty()) {
+                funcionario.setCargo(novoFuncionarioCargo.getText());
 
-
+        }
+        else
+        {
+            exibirDialogoErro("Falha ao Cadastrar funcionário! Cargo não preenchido!");
+            erro = true;
+        }
         try {
-
-            dao.cadastrar(funcionario);
-            exibirDialogoInformacao("Usuario Cadastrado com sucesso!");
-            limparCadastroNovoFuncionario();
-            closeStage();
-
-
-
+            funcionario.setDataNascimento(Date.valueOf(novoFuncionarioNascimento.getValue()));
         } catch (Exception e) {
-            exibirDialogoErro("Falha ao Cadastrar Usuario!");
-            e.printStackTrace();
+            exibirDialogoErro("Falha ao Cadastrar funcionário! Data não preenchida!");
+            erro = true;
         }
 
+        //funcionario.setPassword(novoFuncionarioSenha.getText());
+
+        if(!erro) {
+            try {
+
+                dao.cadastrar(funcionario);
+                exibirDialogoInformacao("Usuario Cadastrado com sucesso!");
+                limparCadastroNovoFuncionario();
+                closeStage();
+
+
+            } catch (Exception e) {
+                exibirDialogoErro("Falha ao Cadastrar Usuario!");
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
