@@ -93,7 +93,7 @@ public class CrudHistoricoVendas implements Initializable {
         }
 
         ObservableList<String> obs = FXCollections.observableList(result);
-        listViewHistorico.setItems(obs);
+        listViewHistorico.setItems(obs);/
 
     }
 
