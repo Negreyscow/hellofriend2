@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -30,12 +31,16 @@ public class CrudHistoricoVendas implements Initializable {
 
     private vendasDAO dao;
 
-    //private Main main;
+    private Main main;
 
     //private Produtos produtoSelecionado;
 
     @FXML
-    private TableView<Vendas> produtoTable;
+    private TableView<Vendas> vendasTableView;
+
+    @FXML
+    ListView<String> listViewHistorico;
+
     @FXML
     private TableColumn<Vendas, Integer> parcelasColumn;
 
@@ -49,8 +54,6 @@ public class CrudHistoricoVendas implements Initializable {
     private TableColumn<Vendas, Double> colunaValor;
 
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -59,127 +62,40 @@ public class CrudHistoricoVendas implements Initializable {
         //consultarFuncionarios();
         //goBuscar();
 
-        colunaData.setCellValueFactory(new PropertyValueFactory<>("data_venda"));
-        colunaValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        parcelasColumn.setCellValueFactory(new PropertyValueFactory<>("parcelas"));
-        ColunaNome.setCellValueFactory(new PropertyValueFactory<>("nome_Cliente"));
 
-        goBuscar();//
-
-    }
-
-
-
-
-
-    @FXML
-    void goBuscar() {
-        produtoTable.getItems().clear();
-        List<Vendas> list = dao.consultar("");
-        ObservableList<Vendas> genericos = FXCollections.observableArrayList(list);
-        produtoTable.setItems(genericos);
-    }
-    /*
-    @FXML
-    void goAlterarButton() throws IOException {
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("view/viewAlterarProdutos.fxml"));
-        BorderPane alterarProduto = loader.load();
-
-        Stage addDialogStage = new Stage();
-        addDialogStage.setTitle("Alterar Produto");
-        addDialogStage.initModality(Modality.WINDOW_MODAL);
-        // addDialogStage.initOwner(primaryStage);
-        Scene scene = new Scene(alterarProduto);
-        addDialogStage.setScene(scene);
-        addDialogStage.showAndWait();
-
-    }
-    @FXML
-    void goCadastrarButton() throws IOException {
-
-        //main.showCadastrarProdutos();
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("view/viewCadastrarProdutos.fxml"));
-        BorderPane cadastrarProduto = loader.load();
-
-        Stage addDialogStage = new Stage();
-        addDialogStage.setTitle("Cadastrar Produto");
-        addDialogStage.initModality(Modality.WINDOW_MODAL);
-        // addDialogStage.initOwner(primaryStage);
-        Scene scene = new Scene(cadastrarProduto);
-        addDialogStage.setScene(scene);
-        addDialogStage.showAndWait();
         goBuscar();
 
     }
 
-    @FXML
-    void goRemoverButton() {
-
-
-        if (produtoTable.getSelectionModel().getSelectedItem() == null){
-            exibirDialogoErro("Não há produto selecionado!");
-        } else {
-
-            if (exibirDialogoConfirmação("Confirmar a exclusão do produto selecionado?")==true){
-                try {
-
-                    dao.deletar(produtoTable.getSelectionModel().getSelectedItem().getCdproduto());
-                    exibirDialogoInformacao("Produto Deletado com sucuesso!");
-                    goBuscar();
-
-
-                } catch (Exception e){
-                    exibirDialogoErro("Falha ao deletar o produto");
-                    e.printStackTrace();
-                }
-            }
-
-        }
-
-    }
 
     @FXML
-    void AtualizarFuncionario(){
-
-        produtoSelecionado.setNome(fieldProduto.getText());
-        produtoSelecionado.setCategoria(fieldCategoria.getText());
-        produtoSelecionado.setQuantidade(new Integer(fieldQtd.getText()));
-        produtoSelecionado.setPreco(new Double(fieldValor.getText()));
-
+    void goBuscar() {
+/*
         try {
+            List<Vendas> resultado = dao.consultar("");
+            ObservableList<Vendas> obs = FXCollections.observableList(resultado);
+            System.out.println(resultado.get(0).getNomeCliente());
+            if(resultado.isEmpty()){
+                exibirDialogoInformacao("Nenhum Resultado foi encontrado");
+            } else {
 
-            dao.alterar(produtoSelecionado);
-            exibirDialogoInformacao("Produto Atualizado!");
-            goBuscar();
-            abas.getSelectionModel().select(tabConsultar);
-
-
+                vendasTableView.setItems(obs);
+            }
         } catch (Exception e){
-            exibirDialogoErro("Falha ao Atualizar!");
+            exibirDialogoErro("Falha ao realizar a consulta");
+            e.printStackTrace();
+        }*/
+        List<Vendas> resultado = dao.consultar("");
+        List<String> result = new ArrayList<>();
+
+        for(int i=0;i<resultado.size();i++) {
+            result.add("Data da venda: " + resultado.get(i).getDataVenda() + "      Valor: " + resultado.get(i).getPreco()+ "       Cliente: " + resultado.get(i).getNomeCliente()+ "       Parcelado em " + resultado.get(i).getParcelas() + "X");
         }
+
+        ObservableList<String> obs = FXCollections.observableList(result);
+        listViewHistorico.setItems(obs);
 
     }
-
-    @FXML
-    void exibirAbaAtualizada(){
-        produtoSelecionado = produtoTable.getSelectionModel().getSelectedItem();
-
-        if (produtoTable.getSelectionModel().getSelectedItem() == null){
-            exibirDialogoErro("Não há um produto selecionado!");
-        } else {
-            tabAtualizar.setDisable(false);
-            abas.getSelectionModel().select(tabAtualizar);
-            fieldProduto.setText(produtoSelecionado.getNome());
-            fieldCategoria.setText(produtoSelecionado.getCategoria());
-            fieldQtd.setText(produtoSelecionado.getQuantidade().toString());
-            fieldValor.setText(Double.toString(produtoSelecionado.getPreco()));
-        }
-
-    }*/
 
 
     private void exibirDialogoInformacao(String informacao){
