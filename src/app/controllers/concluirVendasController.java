@@ -88,6 +88,7 @@ public class concluirVendasController extends Main implements Initializable{
         Vendas venda=new Vendas();
         vendasController teste = new vendasController();
         venda.setPreco(teste.getTotalCompra());
+        //
 
         if(!FieldCliente.getText().isEmpty()) {
             venda.setNomeCliente(FieldCliente.getText());
