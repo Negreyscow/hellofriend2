@@ -3,7 +3,8 @@ package app.model.domain;
 import javafx.fxml.Initializable;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
+//import java.util.Date;
 
 /**
  * Created by Leonardo on 19/02/2017.

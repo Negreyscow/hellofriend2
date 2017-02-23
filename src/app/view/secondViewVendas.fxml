@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -49,10 +48,6 @@
             </VBox>
             <HBox prefHeight="600.0" prefWidth="800.0">
                <children>
-                  <Separator orientation="VERTICAL" prefHeight="473.0" prefWidth="22.0">
-                     <HBox.margin>
-                        <Insets bottom="80.0" top="80.0" />
-                     </HBox.margin></Separator>
                   <VBox prefHeight="600.0" prefWidth="421.0">
                      <children>
                         <Label prefHeight="23.0" prefWidth="155.0" text="Concluir à Venda " textFill="WHITE">
