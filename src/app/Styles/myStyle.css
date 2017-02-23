@@ -29,7 +29,7 @@
 }
 
 #toolbar{
-	-fx-background-color: black;
+	-fx-background-color: #292929FF;
 }
 
 #gerenciar_prod_button {
@@ -83,7 +83,7 @@
 
 #home_button {
 	-fx-background-image: url("../resources/home_ico.png");
-	-fx-background-color: black;
+	-fx-background-color: #292929FF;
 }
 
 #loginBackground {
