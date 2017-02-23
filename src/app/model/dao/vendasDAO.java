@@ -43,7 +43,7 @@ public class vendasDAO {
 
         List<Vendas> vendas = new ArrayList<>();
 
-        String sql = "select * from vendas where nomeCliente like '%" + nomeCliente + "%'";
+        String sql = "select * from vendas where nome_Cliente like '%" + nomeCliente + "%'";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class vendasDAO {
                 venda.setPreco(resultSet.getDouble("valor"));
                 venda.setDataVenda(resultSet.getDate("data_venda"));
                 venda.setParcelas(resultSet.getInt("parcelas"));
-                venda.setNomeCliente(resultSet.getString("nomeCliente"));
+                venda.setNomeCliente(resultSet.getString("nome_Cliente"));
 
 
                 vendas.add(venda);

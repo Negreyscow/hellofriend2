@@ -40,23 +40,18 @@ public class CrudHistoricoVendas implements Initializable {
     private Button buttonBuscar;
 
     @FXML
-    private TableView<Vendas> TableHistorico;
-
-    @FXML
-    private TableColumn<Vendas, Date> dateColumn;
-
-    @FXML
-    private TableColumn<Vendas, Double> valorColumn;
-
+    private TableView<Vendas> produtoTable;
     @FXML
     private TableColumn<Vendas, Integer> parcelasColumn;
 
     @FXML
-    private TableColumn<Vendas, String> nomeColumn;
+    private TableColumn<Vendas, String> ColunaNome;
 
+    @FXML
+    private TableColumn<Vendas,Date> colunaData;
 
-
-
+    @FXML
+    private TableColumn<Vendas, Double> colunaValor;
 
 
 
@@ -69,12 +64,12 @@ public class CrudHistoricoVendas implements Initializable {
         //consultarFuncionarios();
         //goBuscar();
 
-        dateColumn.setCellValueFactory(new PropertyValueFactory<Vendas, Date>("data_venda"));
-        valorColumn.setCellValueFactory(new PropertyValueFactory<Vendas, Double>("valor"));
-        parcelasColumn.setCellValueFactory(new PropertyValueFactory<Vendas, Integer>("parcelas"));
-        nomeColumn.setCellValueFactory(new PropertyValueFactory<Vendas, String>("nome_cliente"));
+        colunaData.setCellValueFactory(new PropertyValueFactory<>("data_venda"));
+        colunaValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        parcelasColumn.setCellValueFactory(new PropertyValueFactory<>("parcelas"));
+        ColunaNome.setCellValueFactory(new PropertyValueFactory<>("nome_Cliente"));
 
-        //goBuscar();
+        goBuscar();
 
     }
 
@@ -86,13 +81,13 @@ public class CrudHistoricoVendas implements Initializable {
     void goBuscar() {
 
         try {
-            List<Vendas> resultado = dao.consultar(fieldBuscar.getText());
+            List<Vendas> resultado = dao.consultar("");
 
             if(resultado.isEmpty()){
                 exibirDialogoInformacao("Nenhum Resultado foi encontrado");
             } else {
 
-                TableHistorico.setItems(FXCollections.observableList(resultado));
+                produtoTable.setItems(FXCollections.observableList(resultado));
 
             }
         } catch (Exception e){
