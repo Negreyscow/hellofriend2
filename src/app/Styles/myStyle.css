@@ -25,7 +25,7 @@
 }
 
 #logout{
-
+    -fx-background-color: #333333FF;
 }
 
 #toolbar{
@@ -83,7 +83,7 @@
 
 #home_button {
 	-fx-background-image: url("../resources/home_ico.png");
-	-fx-background-color: #292929FF;
+	-fx-background-color: #333333FF;
 }
 
 #loginBackground {

@@ -47,15 +47,15 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="minhas_vendas_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="168.0" prefWidth="260.0" text="Trocar Usuário" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="minhas_vendas_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="168.0" prefWidth="260.0" text="Minhas Vendas" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="config_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" text="Minhas Vendas" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="config_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="169.0" prefWidth="270.0" text="Configurações" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="trocar_user_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="165.0" prefWidth="270.0" text="Configurações" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="trocar_user_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#goLogout" prefHeight="165.0" prefWidth="270.0" text="Logout" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font></Button>

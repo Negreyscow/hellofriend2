@@ -54,6 +54,10 @@ public class MainItemsController extends Main {
     public void goHistorico() throws IOException {
         showHistoricoVendas();
     }
+    @FXML
+	public void goLogout() throws IOException {
+		showLogin();
+	}
 
     @FXML
 	void emConstrucao()
