@@ -84,35 +84,49 @@ public class concluirVendasController extends Main implements Initializable{
 
     @FXML
     void concluirVenda() throws IOException{
+        boolean erro=false;
         Vendas venda=new Vendas();
         vendasController teste = new vendasController();
         venda.setPreco(teste.getTotalCompra());
-        venda.setNomeCliente(FieldCliente.getText());
-        venda.setDataVenda(Date.valueOf(DatadaVenda.getValue()));
-        venda.setParcelas(BoxParcelas.getValue());
 
-        if (venda.getNome() == null)
+        if(!FieldCliente.getText().isEmpty()) {
+            venda.setNomeCliente(FieldCliente.getText());
+
+        }
+        else
+        {
             exibirDialogoInformacao("Coloque um nome válido!");
-        else if (venda.getDataVenda() == null)
-            exibirDialogoInformacao("Use uma data válida!");
-        else if (venda.getParcelas() == null)
+            erro = true;
+        }
+        if(!BoxParcelas.getValue().toString().isEmpty()) {
+            venda.setParcelas(BoxParcelas.getValue());
+        }
+        else
+        {
             exibirDialogoInformacao("Você precisar de parcelas para este tipo de pagamento!");
-
-
-
-
+            erro = true;
+        }
         try {
-
-            dao.cadastrar(venda);
-            exibirDialogoInformacao("Venda finalizada com sucesso!");
-            showMainItems();
-            //closeStage();
-
+            venda.setDataVenda(Date.valueOf(DatadaVenda.getValue()));
         } catch (Exception e) {
-            exibirDialogoErro("Venda não finalizada");
-            e.printStackTrace();
+            exibirDialogoInformacao("Use uma data válida!");
+            erro = true;
         }
 
+
+        if(!erro) {
+            try {
+
+                dao.cadastrar(venda);
+                exibirDialogoInformacao("Venda finalizada com sucesso!");
+                showMainItems();
+                //closeStage();
+
+            } catch (Exception e) {
+                exibirDialogoErro("Venda não finalizada");
+                e.printStackTrace();
+            }
+        }
     }
 
     public void carregarComboBox(){

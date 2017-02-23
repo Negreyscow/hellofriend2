@@ -7,6 +7,7 @@ import app.model.dao.vendasDAO;
 import app.model.domain.Produtos;
 import app.model.domain.Vendas;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,7 +30,7 @@ public class CrudHistoricoVendas implements Initializable {
 
     private vendasDAO dao;
 
-    private Main main;
+    //private Main main;
 
     //private Produtos produtoSelecionado;
 
@@ -73,21 +74,10 @@ public class CrudHistoricoVendas implements Initializable {
 
     @FXML
     void goBuscar() {
-
-        try {
-            List<Vendas> resultado = dao.consultar("");
-            System.out.println(resultado.get(0).getNomeCliente());
-            if(resultado.isEmpty()){
-                exibirDialogoInformacao("Nenhum Resultado foi encontrado");
-            } else {
-
-                produtoTable.setItems(FXCollections.observableList(resultado));
-            }
-        } catch (Exception e){
-            exibirDialogoErro("Falha ao realizar a consulta");
-            e.printStackTrace();
-        }
-
+        produtoTable.getItems().clear();
+        List<Vendas> list = dao.consultar("");
+        ObservableList<Vendas> genericos = FXCollections.observableArrayList(list);
+        produtoTable.setItems(genericos);
     }
     /*
     @FXML
